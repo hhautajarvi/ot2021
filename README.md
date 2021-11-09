@@ -2,7 +2,7 @@
 
 Tälle sivulle tulee Helsingin yliopiston ohjelmistotuotanto-kurssin harjoitustyö, sekä laskuharjoitustehtävien vastauksia.
 
-Tässä voidaan *harjoitella* myös **markdownin** käyttöä. Sekä harjoitella githubin käyttöä.
+Tässä voidaan *harjoitella* myös **markdownin** käyttöä. Sekä harjoitella githubin käyttöä vaikka harjoittelemalla epäsynkronia.
 
 ## Tehtävät
 
