@@ -12,11 +12,50 @@ Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttö�
 
 [Työaikakirjanpito](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
-## Tehtävät
+## Python versiot
 
-### Viikko 1
+Toimivuus testattu Pythonin versiolla 3.8.10.
 
-[gitlog.txt](https://github.com/hhautajarvi/ot2021/blob/master/laskarit/viikko1/gitlog.txt)
+## Ohjelman tilanne
 
-[komentorivi.txt](https://github.com/hhautajarvi/ot2021/blob/master/laskarit/viikko1/komentorivi.txt)
+Projektissa toimii tällä hetkellä käyttäjän luominen ja kirjautuminen, sekä budjetin luominen.
 
+## Asennus
+
+1. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+2. Tietokannan alustaminen toimii komennolla:
+
+```bash
+poetry run invoke build
+```
+
+## Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+Ohjelman pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+Testikattavuusraportin voi generoida komennolla:
+
+```bash
+poetry run invoke coverage-report
+```

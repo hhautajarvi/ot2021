@@ -2,15 +2,15 @@ from tkinter import ttk, constants
 from repositories.user_repository import UserRepository
 
 class LoginView():
-    def __init__(self, root, budget_create, budget_view):
+    def __init__(self, root): #, budget_create, budget_view
         self.root = root
         self.username = None
         self.password = None
         self.newuser = None
         self.newpass = None
         self.frame = None
-        self.budget_create = budget_create
-        self.budget_view = budget_view
+        #self.budget_create = budget_create
+        #self.budget_view = budget_view
 
         self.initialize()
 
