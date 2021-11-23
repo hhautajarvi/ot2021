@@ -1,21 +1,24 @@
 from tkinter import ttk, constants
-from repositories.user_repository import UserRepository
+from services.user_service import user_service
 
 class LoginView():
-    def __init__(self, root): #, budget_create, budget_view
+    def __init__(self, root, budget_create, budget_view): 
         self.root = root
         self.username = None
         self.password = None
         self.newuser = None
         self.newpass = None
         self.frame = None
-        #self.budget_create = budget_create
-        #self.budget_view = budget_view
+        self.budget_create = budget_create
+        self.budget_view = budget_view
 
         self.initialize()
 
     def pack(self):
         self.frame.pack(fill=constants.X)
+
+    def destroy(self):
+        self.frame.destroy()
 
     def show_login(self):
         login_label = ttk.Label(master=self.frame, text="Login")
@@ -69,9 +72,13 @@ class LoginView():
         self.frame.grid_columnconfigure(1, weight=1, minsize=300)
 
     def loginbutton_click(self):
-        user = UserRepository.find_user(self.username_entry.get(), self.password_entry.get())
-        self.budget_view(user)
+        username = self.username_entry.get()
+        password = self.password_entry.get()
+        user_service.login(username, password)
+        self.budget_view()
 
     def registerbutton_click(self):
-        user = UserRepository.create_user(self.newuser_entry.get(), self.newpassword_entry.get())
-        self.budget_create(user)
+        username = self.newuser_entry.get()
+        password = self.newpassword_entry.get()
+        user_service.create_new_user(username, password)
+        self.budget_create()

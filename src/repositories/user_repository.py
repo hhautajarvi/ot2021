@@ -12,9 +12,18 @@ class UserRepository:
         user = User(username, password)
         return user
 
-    def find_user(self, username, password):
+    def find_user(self, username):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT username, password FROM Users WHERE username=? AND password=?", (username, password))
+        cursor.execute("SELECT username, password FROM Users WHERE username=?", (username, ))
         name = cursor.fetchone()
-        user = User(name[0], name[1])
-        return user
+        if name == None:
+            return None
+        else:
+            return User(name[0], name[1])
+
+    def delete_all(self):
+        cursor = self.connection.cursor()
+        cursor.execute("DELETE from Users")
+        self.connection.commit()
+
+user_repository = UserRepository(get_database_connection())
