@@ -6,8 +6,8 @@ def main():
     window = Tk()
     window.title('BudgetApp')
 
-    ui = UI(window)
-    ui.start()
+    ui_window = UI(window)
+    ui_window .start()
 
     window.mainloop()
 

@@ -9,7 +9,7 @@ class UserService:
     def create_new_user(self, username, password):
         usercheck = self.user_repository.find_user(username)
 
-        if usercheck != None:
+        if usercheck is not None:
             if username == usercheck.username:
                 raise Exception
 
@@ -20,7 +20,6 @@ class UserService:
         if username == usercheck.username and password == usercheck.password:
             self.user = usercheck
             return self.user
-        else:
-            raise Exception
+        raise Exception
 
 user_service = UserService()

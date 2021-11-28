@@ -16,10 +16,9 @@ class UserRepository:
         cursor = self.connection.cursor()
         cursor.execute("SELECT username, password FROM Users WHERE username=?", (username, ))
         name = cursor.fetchone()
-        if name == None:
+        if name is None:
             return None
-        else:
-            return User(name[0], name[1])
+        return User(name[0], name[1])
 
     def delete_all(self):
         cursor = self.connection.cursor()

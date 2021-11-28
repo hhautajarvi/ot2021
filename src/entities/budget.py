@@ -11,7 +11,8 @@ class Budget:
         self.used = 0
 
     def update_remaining(self):
-        self.used = self.food + self.transit + self.entertainment + self.living + self.utilities + self.insurance
+        self.used = self.food + self.transit + self.entertainment + self.living \
+            + self.utilities + self.insurance
         self.remaining = self.amount - self.used
 
     def change_amount(self, amount):
