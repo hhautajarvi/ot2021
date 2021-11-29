@@ -1,5 +1,6 @@
 class Budget:
-    def __init__(self):
+    def __init__(self, user):
+        self.user = user
         self.amount = 0
         self.food = 0
         self.transit = 0

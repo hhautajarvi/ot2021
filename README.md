@@ -12,6 +12,8 @@ Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttö�
 
 [Työaikakirjanpito](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Python versiot
 
 Toimivuus testattu Pythonin versiolla 3.8.10.
@@ -58,4 +60,12 @@ Testikattavuusraportin voi generoida komennolla:
 
 ```bash
 poetry run invoke coverage-report
+```
+
+### Pylint
+
+Pylintin määrittelemät tarkistukset voi suorittaa komennolla:
+
+```bash
+poetry run invoke lint
 ```
