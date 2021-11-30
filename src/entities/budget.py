@@ -1,7 +1,7 @@
 class Budget:
-    def __init__(self, user):
-        self.user = user
-        self.amount = 0
+    def __init__(self, user_id, amount):
+        self.user_id = user_id
+        self.amount = amount
         self.food = 0
         self.transit = 0
         self.entertainment = 0

@@ -9,16 +9,16 @@ class UserRepository:
         cursor = self.connection.cursor()
         cursor.execute("INSERT INTO Users (username, password) VALUES (?, ?)", (username, password))
         self.connection.commit()
-        user = User(username, password)
+        user = User(cursor.lastrowid, username, password)
         return user
 
     def find_user(self, username):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT username, password FROM Users WHERE username=?", (username, ))
+        cursor.execute("SELECT id, username, password FROM Users WHERE username=?", (username, ))
         name = cursor.fetchone()
         if name is None:
             return None
-        return User(name[0], name[1])
+        return User(name[0], name[1], name[2])
 
     def delete_all(self):
         cursor = self.connection.cursor()

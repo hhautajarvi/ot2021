@@ -3,7 +3,13 @@ from entities.budget import Budget
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.budget = Budget()
+        self.budget = Budget(1, 200)
+
+    def test_constructor_user_id(self):
+        self.assertEqual(self.budget.user_id, 1)
+
+    def test_constructor_budget_amount(self):
+        self.assertEqual(self.budget.amount, 200)
 
     def test_change_amount(self):
         self.budget.change_amount(100)
