@@ -14,7 +14,8 @@ class UserRepository:
 
     def find_user(self, username):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT id, username, password FROM Users WHERE username=?", (username, ))
+        cursor.execute("SELECT id, username, password FROM Users WHERE username=?", \
+            (username, ))
         name = cursor.fetchone()
         if name is None:
             return None

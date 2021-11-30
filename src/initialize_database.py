@@ -28,7 +28,8 @@ def create_tables(connection):
             transit INTEGER,
             entertainment INTEGER,
             living INTEGER,
-            utilities INTEGER
+            utilities INTEGER,
+            insurance INTEGER
         );
     ''')
     connection.commit()

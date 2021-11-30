@@ -20,7 +20,7 @@ Toimivuus testattu Pythonin versiolla 3.8.10.
 
 ## Ohjelman tilanne
 
-Projektissa toimii tällä hetkellä käyttäjän kirjautuminen ja rekisteröinti graafisessa käyttöliittymässä, joista pääsee joko budjetin tekemisen tilaan rekisteröityessä tai budjetin tarkastelun tilaan kirjautuessa. Nämä ja muut toiminnot ovat vielä tekemättä. 
+Projektissa toimii tällä hetkellä käyttäjän kirjautuminen ja rekisteröinti graafisessa käyttöliittymässä, joista pääsee joko budjetin tekemisen tilaan rekisteröityessä tai budjetin tarkastelun tilaan kirjautuessa. Budjetin luonnissa voi määritellä budjetin kokonaissumman.
 
 ## Asennus
 

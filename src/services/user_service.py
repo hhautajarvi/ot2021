@@ -1,10 +1,9 @@
-from entities.user import User
 from repositories.user_repository import user_repository as default_user_repository
 from repositories.budget_repository import budget_repository as default_budget_repository
-from entities.budget import Budget
 
 class UserService:
-    def __init__(self, user_repository=default_user_repository, budget_repository= default_budget_repository):
+    def __init__(self, user_repository=default_user_repository,\
+        budget_repository= default_budget_repository):
         self.user = None
         self.budget = None
         self.user_repository = user_repository
@@ -29,5 +28,12 @@ class UserService:
     def create_budget(self, amount):
         user_id = self.user.user_id
         self.budget = self.budget_repository.create_budget(user_id, amount)
+
+    def show_remaining(self):
+        return self.budget.remaining
+
+    def modify_budget(self, food, transit, entertainment, living, utilities):
+        self.budget_repository.modify_budget(self.user.user_id, food, transit,\
+            entertainment, living, utilities)
 
 user_service = UserService()

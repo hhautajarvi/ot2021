@@ -1,4 +1,4 @@
-from tkinter import StringVar, ttk, constants
+from tkinter import ttk, constants
 from services.user_service import user_service
 
 class BudgetCreateView:

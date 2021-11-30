@@ -19,3 +19,6 @@ class TestUserService(unittest.TestCase):
 
     def test_create_budget_amount(self):
         self.assertEqual(self.budget.amount, 2000)
+
+    def test_show_remaining(self):
+        self.assertEqual(self.budget.remaining, 2000)

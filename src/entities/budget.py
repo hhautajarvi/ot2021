@@ -1,13 +1,14 @@
 class Budget:
-    def __init__(self, user_id, amount):
+    def __init__(self, user_id, amount, food=0, transit=0, entertainment=0, \
+        living=0, utilities=0, insurance=0):
         self.user_id = user_id
         self.amount = amount
-        self.food = 0
-        self.transit = 0
-        self.entertainment = 0
-        self.living = 0
-        self.utilities = 0
-        self.insurance = 0
+        self.food = food
+        self.transit = transit
+        self.entertainment = entertainment
+        self.living = living
+        self.utilities = utilities
+        self.insurance = insurance
         self.remaining = 0
         self.used = 0
 

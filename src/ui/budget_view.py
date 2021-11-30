@@ -1,6 +1,4 @@
 from tkinter import ttk, constants
-from entities.user import User
-from entities.budget import Budget
 
 class BudgetView:
     def __init__(self, root):
