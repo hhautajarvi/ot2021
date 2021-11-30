@@ -7,5 +7,5 @@
 |22.11.  | 4	   | Tietokannan alun tekemistä|
 |23.11.  | 6	   | Käyttäjän luomisen tekemistä, tietokannan kanssa taistelua, sekä ensimmäiset testit|
 |28.11.  | 2	   | Pylintin käyttöönotto ja pientä edistystä koodauksessa|
-|30.11.  | 7	   | Budjetin luomisen tekemistä ja arkkitehtuurikuvaus|
+|30.11.  | 7	   | Budjetin luomisen tekemistä, kulujen toteuttamisen aloittaminen, lisää testejä ja arkkitehtuurikuvaus|
 |yht.  | 25	   | |

@@ -3,10 +3,9 @@ from services.user_service import user_service
 
 class BudgetChooseView:
     def __init__(self, root, show_budget_view):
-        self.show_budget_view = show_budget_view
         self.root = root
         self.frame = None
-        self.budget = user_service.budget
+        self.show_budget_view = show_budget_view
 
         self.initialize()
 

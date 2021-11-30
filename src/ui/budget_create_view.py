@@ -9,7 +9,6 @@ class BudgetCreateView:
 
         self.initialize()
 
-
     def pack(self):
         self.frame.pack(fill=constants.X)
 
