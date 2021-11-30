@@ -8,4 +8,4 @@
 |23.11.  | 6	   | Käyttäjän luomisen tekemistä, tietokannan kanssa taistelua, sekä ensimmäiset testit|
 |28.11.  | 2	   | Pylintin käyttöönotto ja pientä edistystä koodauksessa|
 |30.11.  | 7	   | Budjetin luomisen tekemistä ja arkkitehtuurikuvaus|
-|yht  | 25	   | |
+|yht.  | 25	   | |

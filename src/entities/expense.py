@@ -1,7 +1,7 @@
 class Expense:
-    def __init__(self, date, amount, comment, user, category):
-        self.date = date
+    def __init__(self, user_id, amount, category, comment, date):
+        self.user_id = user_id
         self.amount = amount
-        self.comment = comment
         self.category = category
-        self.user = user
+        self.comment = comment
+        self.date = date

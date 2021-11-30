@@ -8,6 +8,9 @@ def drop_tables(connection):
     cursor.execute('''
         DROP TABLE if exists Budget;
     ''')
+    cursor.execute('''
+        DROP TABLE if exists Expense;
+    ''')
     connection.commit()
 
 def create_tables(connection):
@@ -30,6 +33,16 @@ def create_tables(connection):
             living INTEGER,
             utilities INTEGER,
             insurance INTEGER
+        );
+    ''')
+    cursor.execute('''
+        CREATE TABLE Expense(
+            id INTEGER PRIMARY KEY,
+            user_id INTEGER REFERENCES Users,
+            amount INTEGER,
+            category INTEGER,
+            comment TEXT,
+            date DATE
         );
     ''')
     connection.commit()
