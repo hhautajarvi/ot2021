@@ -12,6 +12,12 @@ class ExpenseRepository:
         self.connection.commit()
         return Expense(user_id, amount, category, comment, date)
 
+    def find_user_expenses(self, user_id):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM Expenses WHERE user_id=?", (user_id, ))
+        expenses = cursor.fetchall()
+        return expenses
+
     def delete_all(self):
         cursor = self.connection.cursor()
         cursor.execute("DELETE from Expense")

@@ -23,3 +23,7 @@ class TestUserService(unittest.TestCase):
 
     def test_create_budget_amount(self):
         self.assertEqual(self.budget[2], 2000)
+
+    def test_modify_budget(self):
+        user_service.modify_budget(100, 90, 80, 70, 60, 50)
+        self.assertEqual(self.budget[3], 100)

@@ -4,3 +4,7 @@ class User:
         self.username = username
         self.password = password
         self.budget = None
+        self.expenselist = []
+
+    def add_expense(self, expense):
+        self.expenselist.append(expense)
