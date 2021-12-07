@@ -32,8 +32,8 @@ class UserService:
     def show_remaining(self):
         return self.budget.remaining
 
-    def modify_budget(self, food, transit, entertainment, living, utilities):
+    def modify_budget(self, food, transit, entertainment, living, utilities, insurance):
         self.budget_repository.modify_budget(self.user.user_id, food, transit,\
-            entertainment, living, utilities)
+            entertainment, living, utilities, insurance)
 
 user_service = UserService()

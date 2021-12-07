@@ -9,8 +9,9 @@ class Budget:
         self.living = living
         self.utilities = utilities
         self.insurance = insurance
-        self.remaining = 0
-        self.used = 0
+        self.used = self.food + self.transit + self.entertainment + self.living \
+            + self.utilities + self.insurance
+        self.remaining = self.amount - self.used
 
     def update_remaining(self):
         self.used = self.food + self.transit + self.entertainment + self.living \

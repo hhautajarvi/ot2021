@@ -32,6 +32,6 @@ class BudgetCreateView:
 
     def createbutton_click(self):
         sum = self.budget_sum.get()
-        user_service.create_budget(sum)
+        user_service.create_budget(int(sum))
         self.choose_budget_view()
 

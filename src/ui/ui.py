@@ -29,6 +29,7 @@ class UI:
     def choose_budget_view(self):
         self.hide_view()
         self.view = BudgetChooseView(self.root, self.show_budget_view)
+        self.view.pack()
 
     def hide_view(self):
         if self.view:
