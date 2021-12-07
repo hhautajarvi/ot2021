@@ -42,7 +42,7 @@ class AddExpenseView:
         comment_label = ttk.Label(master=self.frame, text="Write a comment of the expense:")
         self.comment = ttk.Entry(master=self.frame)
         comment_label.grid(padx=5, pady=5)
-        self.comment.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
+        self.comment.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
 
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)
@@ -50,8 +50,8 @@ class AddExpenseView:
         budget_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
         self.enter_amount()
-        self.choose_category()
         self.write_comment()
+        self.choose_category()   
         add_button = ttk.Button(master=self.frame, text="Add", command=self.addbutton_click)
         add_button.grid(padx=5, pady=5)
 

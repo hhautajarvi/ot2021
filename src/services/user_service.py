@@ -27,6 +27,7 @@ class UserService:
         usercheck = self.user_repository.find_user(username)
         if username == usercheck.username and password == usercheck.password:
             self.user = usercheck
+            self.find_expenses()
             return self.user
         raise Exception
 
@@ -49,6 +50,8 @@ class UserService:
     def create_expense(self, amount, category, comment):
         now = date.today()
         datenow = now.isoformat()
+        new_expense = Expense(self.user.user_id, amount, category, comment, datenow)
+        self.user.add_expense(new_expense)
         self.expense_repository.create_expense(self.user.user_id, \
             amount, category, comment, datenow)
 
@@ -57,5 +60,8 @@ class UserService:
         for expense in expenses:
             new_expense = Expense(expense[1], expense[2], expense[3], expense[4], expense[5])
             self.user.add_expense(new_expense)
+
+    def return_expenses(self):
+        return self.user.expenselist, self.user.expenses_categorized
 
 user_service = UserService()
