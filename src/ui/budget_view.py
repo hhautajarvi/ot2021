@@ -2,10 +2,11 @@ from tkinter import ttk, constants
 from services.user_service import user_service
 
 class BudgetView:
-    def __init__(self, root):
+    def __init__(self, root, add_expense_view):
         self.root = root       
         self.frame = None
         self.budget = user_service.show_budget()
+        self.add_expense_view = add_expense_view
 
         self.initialize()
 
@@ -39,3 +40,9 @@ class BudgetView:
         budget_label = ttk.Label(master=self.frame, text = "Here you can view your budget")
         budget_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
         self.show_budget()
+
+        add_expense_button = ttk.Button(master=self.frame, text="Add new expense", command=self.insert_expense_click)
+        add_expense_button.grid(padx=5, pady=5)
+
+    def insert_expense_click(self):
+        self.add_expense_view()
