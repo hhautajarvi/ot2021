@@ -1,5 +1,15 @@
+# Arkkitehtuurikuvaus
+
+## Rakenne
+
+Kuvassa on esitelty koodin pakkausrakenne ja luokat
+
 ![Luokkakaavio](./kuvat/luokkakaavio.jpg)
 
-Expense- ja ExpenseRepository -luokat eivät ole vielä toiminnallisia.
+Services-luokan UserServices mahdollisesti pilkotaan User-, Budget- ja Expense-service luokkiin.
 
-Myös Services-luokan UserServices mahdollisesti pilkotaan User-, Budget- ja Expense-service luokkiin.
+## Toiminnallisuudet
+
+Kuvassa on esitetty käyttäjän rekisteröinnin sekvenssikaavio
+
+![Rekisteröinti](./kuvat/register_sequence.png)

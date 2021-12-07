@@ -9,5 +9,5 @@
 |28.11.  | 2	   | Pylintin käyttöönotto ja pientä edistystä koodauksessa|
 |30.11.  | 7	   | Budjetin luomisen tekemistä, kulujen toteuttamisen aloittaminen, lisää testejä ja arkkitehtuurikuvaus|
 |06.12.  | 4	   | Budjetin luominen loppuun|
-|06.12.  | 7	   | Kulujen luomista, testejä, release|
+|07.12.  | 7	   | Kulujen luomista, testejä, sekvenssikaavio, release|
 |yht.  | 36	   | |
