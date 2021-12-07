@@ -61,7 +61,6 @@ class BudgetChooseView:
         budget_label = ttk.Label(master=self.frame, text="Here you can choose your budget")
         budget_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
-
         self.show_remaining()
         self.choose_food()
         self.choose_transit()

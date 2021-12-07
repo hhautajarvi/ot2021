@@ -1,3 +1,4 @@
+from entities.budget import Budget
 from repositories.user_repository import user_repository as default_user_repository
 from repositories.budget_repository import budget_repository as default_budget_repository
 
@@ -31,6 +32,12 @@ class UserService:
 
     def show_remaining(self):
         return self.budget.remaining
+
+    def show_budget(self):
+        budget = self.budget_repository.select_budget(self.user.user_id)
+        self.budget = Budget(budget[1], budget[2], budget[3], budget[4], budget[5], \
+            budget[6], budget[7], budget[8])
+        return self.budget
 
     def modify_budget(self, food, transit, entertainment, living, utilities, insurance):
         self.budget_repository.modify_budget(self.user.user_id, food, transit,\
