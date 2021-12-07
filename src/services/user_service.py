@@ -1,3 +1,4 @@
+from datetime import date
 from entities.budget import Budget
 from entities.expense import Expense
 from repositories.user_repository import user_repository as default_user_repository
@@ -5,8 +6,8 @@ from repositories.budget_repository import budget_repository as default_budget_r
 from repositories.expense_repository import expense_repository as default_expense_repository
 
 class UserService:
-    def __init__(self, user_repository=default_user_repository,\
-        budget_repository= default_budget_repository, expense_repository=default_expense_repository):
+    def __init__(self, user_repository=default_user_repository, budget_repository= \
+        default_budget_repository, expense_repository=default_expense_repository):
         self.user = None
         self.budget = None
         self.user_repository = user_repository
@@ -45,8 +46,11 @@ class UserService:
         self.budget_repository.modify_budget(self.user.user_id, food, transit,\
             entertainment, living, utilities, insurance)
 
-    def create_expense(self, amount, category, comment, date):
-        self.expense_repository.create_expense(self.user.user_id, amount, category, comment, date)
+    def create_expense(self, amount, category, comment):
+        now = date.today()
+        datenow = now.isoformat()
+        self.expense_repository.create_expense(self.user.user_id, \
+            amount, category, comment, datenow)
 
     def find_expenses(self):
         expenses = self.expense_repository.find_user_expenses(self.user.user_id)

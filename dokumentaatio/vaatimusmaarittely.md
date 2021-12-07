@@ -10,25 +10,25 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 
 ### Kirjautumisruutu
 
-* Käyttäjä voi luoda uuden käyttäjätunnuksen ja antaa sille salasanan
-* Käyttäjä voi kirjautua valmiiseen käyttäjäprofiiliinsa
+* Käyttäjä voi luoda uuden käyttäjätunnuksen ja antaa sille salasanan - Tehty
+* Käyttäjä voi kirjautua valmiiseen käyttäjäprofiiliinsa - Tehty
 
 ### Aloitusruutu
 
-* Käyttäjä voi luoda uuden budjetin
+* Käyttäjä voi luoda uuden budjetin - Tehty
 * Käyttäjä voi valita jo jonkin olemassa olevan budjeteistaan
 
 ### Budjetin luonti
 
-* Käyttäjä voi valita yhteensä käytettävissä olevan kuukausisumman
-* Valittu kuukausisumma jaetaan kokonaisuudessa eri kategorioiden kesken käyttäjän valitsemassa suhteessa
-* Sovellus käyttää kuinka paljon summasta on jäljellä budjettia suunnitellessa
+* Käyttäjä voi valita yhteensä käytettävissä olevan kuukausisumman - Tehty
+* Valittu kuukausisumma jaetaan kokonaisuudessa eri kategorioiden kesken käyttäjän valitsemassa suhteessa - Tehty
+* Sovellus käyttää kuinka paljon summasta on jäljellä budjettia suunnitellessa - Tehty
 
 ### Budjetin käyttö
 
 * Käyttäjä voi lisätä uuden kulun budjettiin
 * Käyttäjä näkee paljonko tämän kuun budjetista on käytetty
-* Käyttäjä näkee viimeisen kuuden kuukauden toteutuneet kulut graafisen esityksenä
+* Käyttäjä näkee viimeisen kuuden kuukauden toteutuneet kulut graafisena esityksenä
 * Valitsemalla tietyn kuukauden budjetin käyttäjä näkee sen kuukauden kulut tarkemmin eriteltynä
 * Valikosta valitsemalla voi nähdä aikaisempien kuukausien toteutuneet budjetit ja löytää niiden erittelyt
 

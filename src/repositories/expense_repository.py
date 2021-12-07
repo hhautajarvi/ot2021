@@ -14,7 +14,7 @@ class ExpenseRepository:
 
     def find_user_expenses(self, user_id):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM Expenses WHERE user_id=?", (user_id, ))
+        cursor.execute("SELECT * FROM Expense WHERE user_id=?", (user_id, ))
         expenses = cursor.fetchall()
         return expenses
 
@@ -23,4 +23,4 @@ class ExpenseRepository:
         cursor.execute("DELETE from Expense")
         self.connection.commit()
 
-expense_repository = ExpenseRepository(get_database_connection)
+expense_repository = ExpenseRepository(get_database_connection())

@@ -8,12 +8,16 @@ class TestBudgetRepository(unittest.TestCase):
         self.budget1 = budget_repository.select_budget(1)
         budget_repository.modify_budget(1, 50, 40, 30, 20, 10, 5)
         self.budget2 = budget_repository.select_budget(1)
+        self.budget3 = budget_repository.select_budget(2)
 
     def test_create_budget_user_id(self):        
         self.assertEqual(self.budget1[1], 1)
 
     def test_create_budget_amount(self):
         self.assertEqual(self.budget1[2], 1000)
+
+    def test_budget_not_exist(self):
+        self.assertIsNone(self.budget3)
 
     def test_modify_budget_food(self):
         self.assertEqual(self.budget2[3], 50)
