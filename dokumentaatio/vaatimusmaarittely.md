@@ -3,7 +3,7 @@
 ## Sovelluksen tarkoitus
 
 Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttöään. Ohjelmaan voi tehdä oman kuukausibudjettinsa
-sekä syöttää toteutuneet kulut. Kulut ja budjetti syötetään erilaisiin kategorioihin (asumiskulut, ruoka, liikkuminen, vakuutukset jne.).
+sekä syöttää toteutuneet kulut. Kulut ja budjetti syötetään erilaisiin kategorioihin (asumiskulut, ruoka, liikkuminen, vakuutukset, viihde, yleiskulut).
 Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee sekä numeeriset että graafiset esitykset.
 
 ## Sovelluksen toiminnallisuudet
@@ -38,7 +38,7 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 
 ### Toteutuneen kuukausibudjetin erittelyn tarkastelu
 
-* Käyttäjä näkee graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty tekstiversiona
+* Käyttäjä näkee graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty osittain tekstiversiona
 * Graafien alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty ilman jaottelua
 
 ## Jatkokehitysideoita
