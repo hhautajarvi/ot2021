@@ -89,7 +89,7 @@ class BudgetView:
 
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)        
-        budget_label = ttk.Label(master=self.frame, text = "Here you can view your budget")
+        budget_label = ttk.Label(master=self.frame, text = "Here you can view your budget and add expenses")
         budget_label.grid(row=0, column=0, columnspan=3, padx=5, pady=5)
         self.show_budget()
         self.show_expenses()

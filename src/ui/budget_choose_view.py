@@ -29,11 +29,13 @@ class BudgetChooseView:
 
     def show_remaining(self):
         self.remaining = user_service.show_remaining()
-        remaining_label = ttk.Label(master=self.frame, text=f"You have {self.remaining} in your budget")
-        remaining_label.grid(padx=5, pady=5)
+        remaining_label = ttk.Label(master=self.frame, text="You have total of in your budget: ")
+        remaining_sum_label = ttk.Label(master=self.frame, text=f"{self.remaining}")
         self.result_label = ttk.Label(master=self.frame, text=self.food.get() + self.transit.get() + self.entertainment.get() \
             + self.living.get() + self.utilities.get() + self.insurance.get())
-        money_label = ttk.Label(master=self.frame, text="You have used of your budget: ")
+        money_label = ttk.Label(master=self.frame, text="You have left in your budget: ")
+        remaining_label.grid(padx=5, pady=5)
+        remaining_sum_label.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
         money_label.grid(padx=5, pady=5)
         self.result_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
 
@@ -100,7 +102,9 @@ class BudgetChooseView:
             user_service.modify_budget(food, transit, entertainment, living, utilities, insurance)
             self.show_budget_view()
         else:
+            self.destroy()
             self.initialize()
+            self.pack()
 
     def calculate_sum(self, *args):
         try:
@@ -127,4 +131,4 @@ class BudgetChooseView:
             insurance = self.insurance.get()
         except:
             insurance = 0
-        self.result_label['text'] = food + transit + entertainment + living + utilities + insurance
+        self.result_label['text'] = self.remaining - (food + transit + entertainment + living + utilities + insurance)
