@@ -3,44 +3,44 @@ from services.user_service import user_service
 
 class BudgetView:
     def __init__(self, root, add_expense_view):
-        self.root = root       
-        self.frame = None
-        self.budget = user_service.show_budget()
-        self.expenselist, self.expenses_categorized = user_service.return_expenses()
-        self.add_expense_view = add_expense_view
+        self._root = root       
+        self._frame = None
+        self._budget = user_service.show_budget()
+        self._expenselist, self._expenses_categorized = user_service.return_expenses()
+        self._add_expense_view = add_expense_view
 
-        self.initialize()
+        self._initialize()
 
     def pack(self):
-        self.frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X)
 
     def destroy(self):
-        self.frame.destroy()
+        self._frame.destroy()
 
-    def show_budget(self):
-        intro_text = ttk.Label(master=self.frame, text="Here is your original budget:")
-        budget_text = ttk.Label(master=self.frame, text="What you have used so far:")
-        amount_text = ttk.Label(master=self.frame, text="Total budget:")
-        total_amount_text = ttk.Label(master=self.frame, text=f"{self.budget.amount}")
-        used_amount_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[0]}")
-        food_text = ttk.Label(master=self.frame, text="Food budget:")
-        total_food_text = ttk.Label(master=self.frame, text=f"{self.budget.food}")
-        used_food_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[1]}")
-        transit_text = ttk.Label(master=self.frame, text="Transit budget:")
-        total_transit_text = ttk.Label(master=self.frame, text=f"{self.budget.transit}")
-        used_transit_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[2]}")        
-        entertainment_text = ttk.Label(master=self.frame, text="Entertainment budget:")
-        total_entertainment_text = ttk.Label(master=self.frame, text=f"{self.budget.entertainment}")
-        used_entertainment_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[3]}")    
-        living_text = ttk.Label(master=self.frame, text="Living budget:")
-        total_living_text = ttk.Label(master=self.frame, text=f"{self.budget.living}")
-        used_living_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[4]}")    
-        utilities_text = ttk.Label(master=self.frame, text="Utilities budget:")
-        total_utilities_text = ttk.Label(master=self.frame, text=f"{self.budget.utilities}")
-        used_utilities_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[5]}")    
-        insurance_text = ttk.Label(master=self.frame, text="Insurance budget:")
-        total_insurance_text = ttk.Label(master=self.frame, text=f"{self.budget.insurance}")
-        used_insurance_text = ttk.Label(master=self.frame, text=f"{self.expenses_categorized[6]}")    
+    def _show_budget(self):
+        intro_text = ttk.Label(master=self._frame, text="Here is your original budget:")
+        budget_text = ttk.Label(master=self._frame, text="What you have used so far:")
+        amount_text = ttk.Label(master=self._frame, text="Total budget:")
+        total_amount_text = ttk.Label(master=self._frame, text=f"{self._budget.amount}")
+        used_amount_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[0]}")
+        food_text = ttk.Label(master=self._frame, text="Food budget:")
+        total_food_text = ttk.Label(master=self._frame, text=f"{self._budget.food}")
+        used_food_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[1]}")
+        transit_text = ttk.Label(master=self._frame, text="Transit budget:")
+        total_transit_text = ttk.Label(master=self._frame, text=f"{self._budget.transit}")
+        used_transit_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[2]}")        
+        entertainment_text = ttk.Label(master=self._frame, text="Entertainment budget:")
+        total_entertainment_text = ttk.Label(master=self._frame, text=f"{self._budget.entertainment}")
+        used_entertainment_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[3]}")    
+        living_text = ttk.Label(master=self._frame, text="Living budget:")
+        total_living_text = ttk.Label(master=self._frame, text=f"{self._budget.living}")
+        used_living_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[4]}")    
+        utilities_text = ttk.Label(master=self._frame, text="Utilities budget:")
+        total_utilities_text = ttk.Label(master=self._frame, text=f"{self._budget.utilities}")
+        used_utilities_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[5]}")    
+        insurance_text = ttk.Label(master=self._frame, text="Insurance budget:")
+        total_insurance_text = ttk.Label(master=self._frame, text=f"{self._budget.insurance}")
+        used_insurance_text = ttk.Label(master=self._frame, text=f"{self._expenses_categorized[6]}")    
 
         intro_text.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         budget_text.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
@@ -66,10 +66,10 @@ class BudgetView:
         total_insurance_text.grid(row=8, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         used_insurance_text.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def show_expenses(self):
-        expense_label = ttk.Label(master=self.frame, text= "Here are your past expenses")
+    def _show_expenses(self):
+        expense_label = ttk.Label(master=self._frame, text= "Here are your past expenses")
         expense_label.grid(padx=5, pady=5)
-        for expense in self.expenselist:
+        for expense in self._expenselist:
             category_number = expense.category
             if category_number == 1:
                 category_name = "Food"
@@ -83,19 +83,19 @@ class BudgetView:
                 category_name = "Utilities"
             elif category_number == 6:
                 category_name = "Insurance"
-            newexpense_label = ttk.Label(master=self.frame, text=f"{category_name}" \
+            newexpense_label = ttk.Label(master=self._frame, text=f"{category_name}" \
                 f" cost {expense.amount} euros in {expense.date}, comment: {expense.comment}")
             newexpense_label.grid(sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def initialize(self):
-        self.frame = ttk.Frame(master=self.root)        
-        budget_label = ttk.Label(master=self.frame, text = "Here you can view your budget and add expenses")
+    def _initialize(self):
+        self._frame = ttk.Frame(master=self._root)        
+        budget_label = ttk.Label(master=self._frame, text = "Here you can view your budget and add expenses")
         budget_label.grid(row=0, column=0, columnspan=3, padx=5, pady=5)
-        self.show_budget()
-        self.show_expenses()
+        self._show_budget()
+        self._show_expenses()
 
-        add_expense_button = ttk.Button(master=self.frame, text="Add a new expense", command=self.insert_expense_click)
+        add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._insert_expense_click)
         add_expense_button.grid(padx=5, pady=5)
 
-    def insert_expense_click(self):
-        self.add_expense_view()
+    def _insert_expense_click(self):
+        self._add_expense_view()

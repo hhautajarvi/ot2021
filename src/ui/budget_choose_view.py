@@ -3,132 +3,132 @@ from services.user_service import user_service
 
 class BudgetChooseView:
     def __init__(self, root, show_budget_view):
-        self.root = root
-        self.frame = None
-        self.show_budget_view = show_budget_view
-        self.food = IntVar()
-        self.transit = IntVar()
-        self.entertainment = IntVar()
-        self.living = IntVar()
-        self.utilities = IntVar()
-        self.insurance = IntVar()
-        self.food.trace_add("write", self.calculate_sum)
-        self.transit.trace_add("write", self.calculate_sum)
-        self.entertainment.trace_add("write", self.calculate_sum)
-        self.living.trace_add("write", self.calculate_sum)
-        self.utilities.trace_add("write", self.calculate_sum)
-        self.insurance.trace_add("write", self.calculate_sum)
+        self._root = root
+        self._frame = None
+        self._show_budget_view = show_budget_view
+        self._food = IntVar()
+        self._transit = IntVar()
+        self._entertainment = IntVar()
+        self._living = IntVar()
+        self._utilities = IntVar()
+        self._insurance = IntVar()
+        self._food.trace_add("write", self.calculate_sum)
+        self._transit.trace_add("write", self.calculate_sum)
+        self._entertainment.trace_add("write", self.calculate_sum)
+        self._living.trace_add("write", self.calculate_sum)
+        self._utilities.trace_add("write", self.calculate_sum)
+        self._insurance.trace_add("write", self.calculate_sum)
 
-        self.initialize()
+        self._initialize()
 
     def pack(self):
-        self.frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X)
 
     def destroy(self):
-        self.frame.destroy()
+        self._frame.destroy()
 
-    def show_remaining(self):
-        self.remaining = user_service.show_remaining()
-        remaining_label = ttk.Label(master=self.frame, text="You have total of in your budget: ")
-        remaining_sum_label = ttk.Label(master=self.frame, text=f"{self.remaining}")
-        self.result_label = ttk.Label(master=self.frame, text=self.food.get() + self.transit.get() + self.entertainment.get() \
-            + self.living.get() + self.utilities.get() + self.insurance.get())
-        money_label = ttk.Label(master=self.frame, text="You have left in your budget: ")
+    def _view_remaining(self):
+        self._remaining = user_service.show_remaining()
+        remaining_label = ttk.Label(master=self._frame, text="You have total of in your budget: ")
+        remaining_sum_label = ttk.Label(master=self._frame, text=f"{self._remaining}")
+        self._result_label = ttk.Label(master=self._frame, text=self._food.get() + self._transit.get() + self._entertainment.get() \
+            + self._living.get() + self._utilities.get() + self._insurance.get())
+        money_label = ttk.Label(master=self._frame, text="You have left in your budget: ")
         remaining_label.grid(padx=5, pady=5)
         remaining_sum_label.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
         money_label.grid(padx=5, pady=5)
-        self.result_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
+        self._result_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
 
-    def choose_food(self):
-        food_label = ttk.Label(master=self.frame, text="Choose food budget:")
-        self.food_sum = ttk.Entry(master=self.frame, textvariable=self.food)
+    def _choose_food(self):
+        food_label = ttk.Label(master=self._frame, text="Choose food budget:")
+        self._food_sum = ttk.Entry(master=self._frame, textvariable=self._food)
         food_label.grid(padx=5, pady=5)
-        self.food_sum.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)     
+        self._food_sum.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)     
 
-    def choose_transit(self):
-        transit_label = ttk.Label(master=self.frame, text="Choose transit budget:")
-        self.transit_sum = ttk.Entry(master=self.frame, textvariable=self.transit)
+    def _choose_transit(self):
+        transit_label = ttk.Label(master=self._frame, text="Choose transit budget:")
+        self._transit_sum = ttk.Entry(master=self._frame, textvariable=self._transit)
         transit_label.grid(padx=5, pady=5)
-        self.transit_sum.grid(row=4, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._transit_sum.grid(row=4, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def choose_entertainment(self):
-        entertainment_label = ttk.Label(master=self.frame, text="Choose entertainment budget:")
-        self.entertainment_sum = ttk.Entry(master=self.frame, textvariable=self.entertainment)
+    def _choose_entertainment(self):
+        entertainment_label = ttk.Label(master=self._frame, text="Choose entertainment budget:")
+        self._entertainment_sum = ttk.Entry(master=self._frame, textvariable=self._entertainment)
         entertainment_label.grid(padx=5, pady=5)
-        self.entertainment_sum.grid(row=5, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._entertainment_sum.grid(row=5, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
  
-    def choose_living(self):
-        living_label = ttk.Label(master=self.frame, text="Choose living budget:")
-        self.living_sum = ttk.Entry(master=self.frame, textvariable=self.living)
+    def _choose_living(self):
+        living_label = ttk.Label(master=self._frame, text="Choose living budget:")
+        self._living_sum = ttk.Entry(master=self._frame, textvariable=self._living)
         living_label.grid(padx=5, pady=5)
-        self.living_sum.grid(row=6, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._living_sum.grid(row=6, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def choose_utilities(self):
-        utilities_label = ttk.Label(master=self.frame, text="Choose utilities budget:")
-        self.utilities_sum = ttk.Entry(master=self.frame, textvariable=self.utilities)
+    def _choose_utilities(self):
+        utilities_label = ttk.Label(master=self._frame, text="Choose utilities budget:")
+        self._utilities_sum = ttk.Entry(master=self._frame, textvariable=self._utilities)
         utilities_label.grid(padx=5, pady=5)
-        self.utilities_sum.grid(row=7, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._utilities_sum.grid(row=7, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def choose_insurance(self):
-        insurance_label = ttk.Label(master=self.frame, text="Choose insurance budget:")
-        self.insurance_sum = ttk.Entry(master=self.frame, textvariable=self.insurance)
+    def _choose_insurance(self):
+        insurance_label = ttk.Label(master=self._frame, text="Choose insurance budget:")
+        self._insurance_sum = ttk.Entry(master=self._frame, textvariable=self._insurance)
         insurance_label.grid(padx=5, pady=5)
-        self.insurance_sum.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._insurance_sum.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def initialize(self):
-        self.frame = ttk.Frame(master=self.root)        
-        budget_label = ttk.Label(master=self.frame, text="Here you can choose your budget")
+    def _initialize(self):
+        self._frame = ttk.Frame(master=self._root)        
+        budget_label = ttk.Label(master=self._frame, text="Here you can choose your budget")
         budget_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
-        self.show_remaining()
-        self.choose_food()
-        self.choose_transit()
-        self.choose_entertainment()
-        self.choose_living()
-        self.choose_utilities()
-        self.choose_insurance()
-        create_button = ttk.Button(master=self.frame, text="Create", command=self.createbutton_click)
+        self._view_remaining()
+        self._choose_food()
+        self._choose_transit()
+        self._choose_entertainment()
+        self._choose_living()
+        self._choose_utilities()
+        self._choose_insurance()
+        create_button = ttk.Button(master=self._frame, text="Create", command=self._createbutton_click)
         create_button.grid(row=9, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def createbutton_click(self):
-        food = int(self.food_sum.get())
-        transit = int(self.transit_sum.get())
-        entertainment = int(self.entertainment_sum.get())
-        living = int(self.living_sum.get())
-        utilities = int(self.utilities_sum.get())
-        insurance = int(self.insurance_sum.get())
+    def _createbutton_click(self):
+        food = int(self._food_sum.get())
+        transit = int(self._transit_sum.get())
+        entertainment = int(self._entertainment_sum.get())
+        living = int(self._living_sum.get())
+        utilities = int(self._utilities_sum.get())
+        insurance = int(self._insurance_sum.get())
         amount = food + transit + entertainment + living + utilities + insurance
-        if self.remaining >= amount:
+        if self._remaining >= amount:
             user_service.modify_budget(food, transit, entertainment, living, utilities, insurance)
-            self.show_budget_view()
+            self._show_budget_view()
         else:
             self.destroy()
-            self.initialize()
+            self._initialize()
             self.pack()
 
     def calculate_sum(self, *args):
         try:
-            food = self.food.get()
+            food = self._food.get()
         except:
             food = 0
         try:
-            transit = self.transit.get()
+            transit = self._transit.get()
         except:
             transit = 0
         try:
-            entertainment = self.entertainment.get()
+            entertainment = self._entertainment.get()
         except:
             entertainment = 0
         try:
-            living = self.living.get()
+            living = self._living.get()
         except:
             living = 0
         try:
-            utilities = self.utilities.get()
+            utilities = self._utilities.get()
         except:
             utilities = 0
         try:
-            insurance = self.insurance.get()
+            insurance = self._insurance.get()
         except:
             insurance = 0
-        self.result_label['text'] = self.remaining - (food + transit + entertainment + living + utilities + insurance)
+        self._result_label['text'] = self._remaining - (food + transit + entertainment + living + utilities + insurance)

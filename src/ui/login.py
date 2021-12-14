@@ -3,82 +3,77 @@ from services.user_service import user_service
 
 class LoginView():
     def __init__(self, root, budget_create, budget_view): 
-        self.root = root
-        self.username = None
-        self.password = None
-        self.newuser = None
-        self.newpass = None
-        self.frame = None
-        self.budget_create = budget_create
-        self.budget_view = budget_view
+        self._root = root
+        self._frame = None
+        self._budget_create = budget_create
+        self._budget_view = budget_view
 
-        self.initialize()
+        self._initialize()
 
     def pack(self):
-        self.frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X)
 
     def destroy(self):
-        self.frame.destroy()
+        self._frame.destroy()
 
-    def show_login(self):
-        login_label = ttk.Label(master=self.frame, text="Login")
-        username_label = ttk.Label(master=self.frame, text="Username")
-        self.username_entry = ttk.Entry(master=self.frame)
+    def _show_login(self):
+        login_label = ttk.Label(master=self._frame, text="Login")
+        username_label = ttk.Label(master=self._frame, text="Username")
+        self._username_entry = ttk.Entry(master=self._frame)
 
-        password_label = ttk.Label(master=self.frame, text="Password")
-        self.password_entry = ttk.Entry(master=self.frame)
+        password_label = ttk.Label(master=self._frame, text="Password")
+        self._password_entry = ttk.Entry(master=self._frame)
 
         login_label.grid(row=1, column=0, columnspan=2, sticky=constants.W, padx=5, pady=5)
 
         username_label.grid(padx=5, pady=5)
-        self.username_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._username_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         password_label.grid(padx=5, pady=5)
-        self.password_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._password_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-        loginbutton = ttk.Button(master=self.frame, text="Login", command=self.loginbutton_click)
+        loginbutton = ttk.Button(master=self._frame, text="Login", command=self.loginbutton_click)
         loginbutton.grid(row=4, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
 
-    def show_register(self):
-        register_label = ttk.Label(master=self.frame, text="Make a new user")
+    def _show_register(self):
+        register_label = ttk.Label(master=self._frame, text="Make a new user")
 
-        newuser_label = ttk.Label(master=self.frame, text= "Choose a username")
-        self.newuser_entry = ttk.Entry(master=self.frame)
+        newuser_label = ttk.Label(master=self._frame, text= "Choose a username")
+        self._newuser_entry = ttk.Entry(master=self._frame)
 
-        newpassword_label = ttk.Label(master=self.frame, text="Choose a password")
-        self.newpassword_entry = ttk.Entry(master=self.frame)
+        newpassword_label = ttk.Label(master=self._frame, text="Choose a password")
+        self._newpassword_entry = ttk.Entry(master=self._frame)
         
         register_label.grid(row=5, column=0, columnspan=2, sticky=constants.W, padx=5, pady=5)
 
         newuser_label.grid(padx=5, pady=5)
-        self.newuser_entry.grid(row=6, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._newuser_entry.grid(row=6, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         newpassword_label.grid(padx=5, pady=5)
-        self.newpassword_entry.grid(row=7, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._newpassword_entry.grid(row=7, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-        registerbutton = ttk.Button(master=self.frame, text="Register", command=self.registerbutton_click)
+        registerbutton = ttk.Button(master=self._frame, text="Register", command=self._registerbutton_click)
         registerbutton.grid(row=8, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    def initialize(self):
-        self.frame = ttk.Frame(master=self.root)
-        welcome_label = ttk.Label(master=self.frame, text="Welcome to BudgetApp!")
-
+    def _initialize(self):
+        self._frame = ttk.Frame(master=self._root)
+        welcome_label = ttk.Label(master=self._frame, text="Welcome to BudgetApp!")
         welcome_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
-        self.show_login()
-        self.show_register()
+        self._show_login()
+        self._show_register()
 
-        self.frame.grid_columnconfigure(1, weight=1, minsize=300)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=300)
 
     def loginbutton_click(self):
-        username = self.username_entry.get()
-        password = self.password_entry.get()
+        username = self._username_entry.get()
+        password = self._password_entry.get()
         user_service.login(username, password)
-        self.budget_view()
+        self._budget_view()
 
-    def registerbutton_click(self):
-        username = self.newuser_entry.get()
-        password = self.newpassword_entry.get()
+    def _registerbutton_click(self):
+        username = self._newuser_entry.get()
+        password = self._newpassword_entry.get()
         user_service.create_new_user(username, password)
-        self.budget_create()
+        self._budget_create()
