@@ -37,7 +37,7 @@ Jos käyttäjä loi uuden käyttäjän, hänet siirretään uuden budjetin luomi
 
 ## Budjetin tarkastelu
 
-Kun käyttäjä joko kirjautuu jo luodulla käyttäjällä sisään tai luo budjetin uudella käyttäjällä, käyttäjä siirretään budjetin tarkastelun tilaan. Tässä tilassa käyttäjä näkee luomansa budjetin summat, sekä kirjaamiensa kulujen yhteissummat, sekä kirjatut kulut eriteltynä. Tilassa löytyy myös 'Add a new expense'-painike josta käyttäjä voi luoda uuden kulun budjettiin.
+Kun käyttäjä joko kirjautuu jo luodulla käyttäjällä sisään tai luo budjetin uudella käyttäjällä, käyttäjä siirretään budjetin tarkastelun tilaan. Tässä tilassa käyttäjä näkee luomansa budjetin summat, sekä kirjaamiensa kulujen yhteissummat, sekä kirjatut kulut eriteltynä. Tilassa löytyy myös 'Add a new expense'-painike josta käyttäjä voi luoda uuden kulun budjettiin. 'See plots'-painikkeesta käyttäjä näkee pylväsdiagrammeina suunnitellun ja toteutuneen budjetin vertailun graafisena esityksenä. Tästä näkymästä pääsee takaisin budjetin tarkasteluun painamalla oikean yläkulman rastia ja sulkemalla avautuneen ikkunan. 'Logout'-painikkeesta käyttäjä voi kirjautua ulos ja palata takaisin kirjautumis- ja rekisteröintinäkymään.
 
 ## Uuden kulun luominen
 

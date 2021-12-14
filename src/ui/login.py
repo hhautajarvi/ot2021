@@ -1,7 +1,7 @@
 from tkinter import ttk, constants, StringVar
 from services.user_service import user_service
 
-class LoginView():
+class LoginView:
     def __init__(self, root, budget_create, budget_view): 
         self._root = root
         self._frame = None

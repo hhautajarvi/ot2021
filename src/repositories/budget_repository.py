@@ -32,9 +32,9 @@ class BudgetRepository:
 
         Args:
             user_id (int): Käyttäjän tunnistenumero
-            food (int): food-kategorian summa. 
+            food (int): food-kategorian summa.
             transit (int): transit-kategorian summa.
-            entertainment (int): entertainment-kategorian summa. 
+            entertainment (int): entertainment-kategorian summa.
             living (int): living-kategorian summa.
             utilities (int): utilities-kategorian summa.
             insurance (int): insurance-kategorian summa.

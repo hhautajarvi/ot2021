@@ -10,12 +10,15 @@ class UserService:
     """
     def __init__(self, user_repository=default_user_repository, budget_repository= \
         default_budget_repository, expense_repository=default_expense_repository):
-        """Luokan konstruktori 
+        """Luokan konstruktori
 
         Args:
-            user_repository (optional): Olio, jolla on UserRepository-luokkaa vastaavat metodit. Defaults to default_user_repository.
-            budget_repository (optional): Olio, jolla on BudgetRepository-luokkaa vastaavat metodit. Defaults to default_budget_repository.
-            expense_repository (optional): Olio, jolla on ExpenseRepository-luokkaa vastaavat metodit. Defaults to default_expense_repository.
+            user_repository (optional): Olio, jolla on UserRepository-luokkaa vastaavat metodit.\
+                Defaults to default_user_repository.
+            budget_repository (optional): Olio, jolla on BudgetRepository-luokkaa vastaavat \
+                metodit. Defaults to default_budget_repository.
+            expense_repository (optional): Olio, jolla on ExpenseRepository-luokkaa vastaavat \
+                metodit. Defaults to default_expense_repository.
         """
         self._user = None
         self._budget = None
@@ -100,9 +103,9 @@ class UserService:
         """Muokkaa budjettia lisäämäällä siihen kategorioiden valitut summat
 
         Args:
-            food (int): food-kategorian summa. 
+            food (int): food-kategorian summa.
             transit (int): transit-kategorian summa.
-            entertainment (int): entertainment-kategorian summa. 
+            entertainment (int): entertainment-kategorian summa.
             living (int): living-kategorian summa.
             utilities (int): utilities-kategorian summa.
             insurance (int): insurance-kategorian summa.
@@ -115,7 +118,7 @@ class UserService:
 
         Args:
             amount (int): Kulun summa
-            category (int): Kulun kategoria 
+            category (int): Kulun kategoria
                 (1=food, 2=transit, 3=entertainment, 4=living, 5=utilities, 6=insurance)
             comment (str): Kommentti kulusta
         """

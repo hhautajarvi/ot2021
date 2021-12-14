@@ -4,7 +4,8 @@ class Budget:
     Attributes:
         user_id: Käyttäjän tunnistenumero
         amount: Budjetin kokonaissumma
-        food, transit, entertainment, living, utilities, insurance: kyseisten kategorioiden summat budjetissa
+        food, transit, entertainment, living, utilities, insurance: \
+            kyseisten kategorioiden summat budjetissa
         used: käytetty määrä budjetin kokonaissummasta
         remaining: jäljellä oleva määrä budjetin kokonaissummasta
     """

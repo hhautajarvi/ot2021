@@ -11,4 +11,5 @@
 |06.12.  | 4	   | Budjetin luominen loppuun|
 |07.12.  | 7	   | Kulujen luomista, testejä, sekvenssikaavio, release|
 |13.12.  | 2	   | Refaktorointia, docstring-dokumentointia|
-|yht.  | 38	   | |
+|14.12.  | 8	   | Virheilmoitusten tekoa, matplotlib-kirjastoon tutustumista ja ensimmäisten graafisten esitysten tekoa, dokumentaation kirjoittamista|
+|yht.  | 46	   | |

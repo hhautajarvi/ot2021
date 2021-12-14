@@ -1,14 +1,16 @@
 from tkinter import ttk, constants
+from ui.plotting.plot_view import PlotView
 from services.user_service import user_service
 
 class BudgetView:
-    def __init__(self, root, add_expense_view, login_view):
+    def __init__(self, root, add_expense_view, login_view, plot_view):
         self._root = root       
         self._frame = None
         self._budget = user_service.show_budget()
         self._expenselist, self._expenses_categorized = user_service.return_expenses()
         self._add_expense_view = add_expense_view
         self._login_view = login_view
+        self._plot_view = plot_view
 
         self._initialize()
 
@@ -102,19 +104,21 @@ class BudgetView:
         budget_label.grid(row=0, column=0, columnspan=3, padx=5, pady=5)
 
         self._show_budget()
-        self._show_expenses()
 
-        add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._insert_expense_click)
-        add_expense_button.grid(padx=5, pady=5)
+        add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._add_expense_view)
+        add_expense_button.grid(row=9, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
+
+        plot_button = ttk.Button(master=self._frame, text="See plots", command=self._plot_view)
+        plot_button.grid(row=9, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout_click)
-        logout_button.grid(padx=5, pady=5)
+        logout_button.grid(row=9, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
+        self._show_expenses()
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=300)
-
-    def _insert_expense_click(self):
-        self._add_expense_view()
 
     def _logout_click(self):
         user_service.logout()
         self._login_view()
+        
