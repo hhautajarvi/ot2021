@@ -76,7 +76,7 @@ class LoginView():
         self._show_login()
         self._show_register()
 
-        #self._frame.grid_columnconfigure(1, weight=1, minsize=300)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=300)
         self._hide_error()
 
     def _loginbutton_click(self):

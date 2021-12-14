@@ -41,6 +41,8 @@ class BudgetCreateView:
         budget_label = ttk.Label(master=self._frame, text = "Here you can make your budget")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
         self._choose_budget_sum()
+
+        self._frame.grid_columnconfigure(1, weight=1, minsize=170)
         self._hide_error()
 
     def createbutton_click(self):

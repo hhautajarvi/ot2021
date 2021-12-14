@@ -99,8 +99,11 @@ class BudgetChooseView:
         self._choose_living()
         self._choose_utilities()
         self._choose_insurance()
+        
         create_button = ttk.Button(master=self._frame, text="Create", command=self._createbutton_click)
         create_button.grid(row=10, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        
+        self._frame.grid_columnconfigure(1, weight=1, minsize=170)
         self._hide_error()
 
     def _createbutton_click(self):

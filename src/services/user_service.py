@@ -64,6 +64,11 @@ class UserService:
             return self._user
         raise Exception
 
+    def logout(self):
+        """Kirjaa käyttäjän ulos.
+        """
+        self._user = None
+
     def create_budget(self, amount):
         """Luo uuden budjetin
 

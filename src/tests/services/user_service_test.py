@@ -6,9 +6,9 @@ from repositories.expense_repository import expense_repository
 
 class TestUserService(unittest.TestCase):
     def setUp(self):
-        user_service.budget_repository.delete_all()
-        user_service.user_repository.delete_all()
-        user_service.expense_repository.delete_all()
+        user_service._budget_repository.delete_all()
+        user_service._user_repository.delete_all()
+        user_service._expense_repository.delete_all()
         user_service.create_new_user("Matti", "salasana2")
         user_service.create_budget(2000)
         user_service.modify_budget(100, 90, 80, 70, 60, 50)

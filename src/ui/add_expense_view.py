@@ -24,12 +24,14 @@ class AddExpenseView:
     def _choose_category(self):
         category_label = ttk.Label(master=self._frame, text="Choose category")
         self._category = IntVar(value= 1)
+        
         food_button = Radiobutton(master=self._frame, text="Food", variable=self._category, value=1)
         transit_button = Radiobutton(master=self._frame, text="Transit", variable=self._category, value=2)
         entertainment_button = Radiobutton(master=self._frame, text="Entertainment", variable=self._category, value=3)
         living_button = Radiobutton(master=self._frame, text="Living", variable=self._category, value=4)
         utilities_button = Radiobutton(master=self._frame, text="Utilities", variable=self._category, value=5)
         insurance_button = Radiobutton(master=self._frame, text="Insurance", variable=self._category, value=6)
+        
         category_label.grid(padx=5, pady=5)
         food_button.grid(padx=5, pady=5)
         transit_button.grid(padx=5, pady=5)
@@ -63,9 +65,12 @@ class AddExpenseView:
 
         self._enter_amount()
         self._write_comment()
-        self._choose_category()   
+        self._choose_category()  
+
         add_button = ttk.Button(master=self._frame, text="Add", command=self._addbutton_click)
         add_button.grid(padx=5, pady=5)
+        
+        self._frame.grid_columnconfigure(1, weight=1, minsize=170)
         self._hide_error()
 
     def _addbutton_click(self):

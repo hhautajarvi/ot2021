@@ -23,4 +23,4 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(self.user.expenselist), 2)
 
     def test_add_expense_sum(self):
-        self.assertEqual((self.user.expenselist[0].amount+self.user.expenselist[1].amount), 500)   
+        self.assertEqual((self.user.expenselist[0].amount+self.user.expenselist[1].amount), 500)
