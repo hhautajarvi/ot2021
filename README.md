@@ -6,6 +6,10 @@ Tälle sivulle tulee Helsingin yliopiston ohjelmistotuotanto-kurssin harjoitusty
 
 Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttöään sekä tarkastella tilastoja toteutuneista kuluista.
 
+## Releases
+
+[Releases](https://github.com/hhautajarvi/ot2021/releases)
+
 ## Dokumentaatio
 
 [Käyttöohje](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/kayttoohje.md)
