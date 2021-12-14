@@ -35,11 +35,21 @@ class Budget:
 
     @property
     def used(self):
+        """Palauttaa budjetissa käytetyn summan
+
+        Returns:
+            int: Palauttaa budjetissa käytetyn summan
+        """
         return self.food + self.transit + self.entertainment + self.living \
              + self.utilities + self.insurance
 
     @property
     def remaining(self):
+        """Palauttaa budjetissa jäljellä olevan käyttämättömän summan
+
+        Returns:
+            int: Palauttaa budjetissa jäljellä olevan käyttämättömän summan
+        """
         return self.amount - self.used
 
     def change_amount(self, amount):

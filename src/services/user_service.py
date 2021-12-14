@@ -6,7 +6,7 @@ from repositories.budget_repository import budget_repository as default_budget_r
 from repositories.expense_repository import expense_repository as default_expense_repository
 
 class UserService:
-    """Sovelluslogiikaska vastaava luokka
+    """Sovelluslogiikasta vastaava luokka
     """
     def __init__(self, user_repository=default_user_repository, budget_repository= \
         default_budget_repository, expense_repository=default_expense_repository):

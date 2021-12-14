@@ -22,7 +22,21 @@ class TestUserService(unittest.TestCase):
         self.assertEqual(self.user.username, "Matti")
 
     def test_create_new_user_password(self):
-        self.assertEqual(self.user.password, "salasana2")        
+        self.assertEqual(self.user.password, "salasana2")  
+        
+    def test_create_new_user_duplicate_username(self):
+        self.assertRaises(Exception, user_service.create_new_user, "Matti", "sala")  
+
+    def test_login_user(self):
+        login_user = user_service.login("Matti", "salasana2")
+        self.assertEqual(login_user.username, self.user.username)
+        self.assertEqual(login_user.password, self.user.password)
+
+    def test_login_user_wrong_username(self):
+        self.assertRaises(Exception, user_service.login, "Masa", "salasana2")
+
+    def test_login_user_wrong_password(self):
+        self.assertRaises(Exception, user_service.login, "Matti", "sala") 
 
     def test_create_budget_user_id(self):
         self.assertEqual(self.budget[1], 1)
@@ -53,3 +67,17 @@ class TestUserService(unittest.TestCase):
 
     def test_expense_sum(self):
         self.assertEqual((self.expenses[0][2]+self.expenses[1][2]), 300)
+
+    def test_show_remaining(self):
+        self.assertEqual(user_service.show_remaining(), 2000)
+
+    def test_return_expenses(self):
+        expenselist, expenselistcat = user_service.return_expenses()
+        self.assertEqual(len(expenselist), 2)
+        self.assertEqual(expenselistcat[0], 300)
+        self.assertEqual(expenselistcat[1], 200)
+        self.assertEqual(expenselistcat[4], 100)
+
+    def test_logout(self):
+        user_service.logout()
+        self.assertIsNone(user_service._user)
