@@ -23,7 +23,7 @@ class AddExpenseView:
 
     def _choose_category(self):
         category_label = ttk.Label(master=self._frame, text="Choose category")
-        self._category = IntVar()
+        self._category = IntVar(value= 1)
         food_button = Radiobutton(master=self._frame, text="Food", variable=self._category, value=1)
         transit_button = Radiobutton(master=self._frame, text="Transit", variable=self._category, value=2)
         entertainment_button = Radiobutton(master=self._frame, text="Entertainment", variable=self._category, value=3)
@@ -59,6 +59,6 @@ class AddExpenseView:
     def _addbutton_click(self):
         amount = int(self._amount_sum.get())
         comment = self._comment.get()
-        category = self._category.get()
+        category = int(self._category.get())
         user_service.create_expense(amount, category, comment)
         self._show_budget_view()

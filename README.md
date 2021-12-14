@@ -8,6 +8,8 @@ Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttö�
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/kayttoohje.md)
+
 [Vaativuusmäärittely](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/tyoaikakirjanpito.md)

@@ -10,4 +10,5 @@
 |30.11.  | 7	   | Budjetin luomisen tekemistä, kulujen toteuttamisen aloittaminen, lisää testejä ja arkkitehtuurikuvaus|
 |06.12.  | 4	   | Budjetin luominen loppuun|
 |07.12.  | 7	   | Kulujen luomista, testejä, sekvenssikaavio, release|
-|yht.  | 36	   | |
+|13.12.  | 2	   | Refaktorointia, docstring-dokumentointia|
+|yht.  | 38	   | |
