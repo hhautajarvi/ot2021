@@ -1,4 +1,4 @@
-from tkinter import Radiobutton, ttk, constants, IntVar
+from tkinter import Radiobutton, ttk, constants, IntVar, StringVar
 from services.user_service import user_service
 
 class AddExpenseView:
@@ -19,7 +19,7 @@ class AddExpenseView:
         amount_label = ttk.Label(master=self._frame, text="Enter expense amount:")
         self._amount_sum = ttk.Entry(master=self._frame)
         amount_label.grid(padx=5, pady=5)
-        self._amount_sum.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
+        self._amount_sum.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
 
     def _choose_category(self):
         category_label = ttk.Label(master=self._frame, text="Choose category")
@@ -42,23 +42,42 @@ class AddExpenseView:
         comment_label = ttk.Label(master=self._frame, text="Write a comment of the expense:")
         self._comment = ttk.Entry(master=self._frame)
         comment_label.grid(padx=5, pady=5)
-        self._comment.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
+        self._comment.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
+    def _show_error(self, message):
+        self._error_variable.set(message)
+        self._error_label.grid()
+
+    def _hide_error(self):
+        self._error_label.grid_remove()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        self._error_variable = StringVar(self._frame)
+        self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
+        self._error_label.grid(padx=5, pady=5)
+
         budget_label = ttk.Label(master=self._frame, text="Enter a new expense")
-        budget_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+        budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
         self._enter_amount()
         self._write_comment()
         self._choose_category()   
         add_button = ttk.Button(master=self._frame, text="Add", command=self._addbutton_click)
         add_button.grid(padx=5, pady=5)
-
+        self._hide_error()
 
     def _addbutton_click(self):
-        amount = int(self._amount_sum.get())
+        try:
+            amount = int(self._amount_sum.get())
+        except:
+            self._show_error(f"Amount is required in numbers")
+            return
         comment = self._comment.get()
+        if len(comment) > 50:
+            self._show_error(f"Comment too long, max length is 50 characters")
+            return
         category = int(self._category.get())
         user_service.create_expense(amount, category, comment)
         self._show_budget_view()
