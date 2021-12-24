@@ -63,6 +63,9 @@ class AddExpenseView:
         budget_label = ttk.Label(master=self._frame, text="Enter a new expense")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
+        exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
+        exit_button.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
         self._enter_amount()
         self._write_comment()
         self._choose_category()  
@@ -86,3 +89,7 @@ class AddExpenseView:
         category = int(self._category.get())
         user_service.create_expense(amount, category, comment)
         self._show_budget_view()
+
+    def _exit(self):
+        user_service.exit()
+        

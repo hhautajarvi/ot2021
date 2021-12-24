@@ -7,7 +7,7 @@ def main():
     window.title('BudgetApp')
 
     ui_window = UI(window)
-    ui_window .start()
+    ui_window.start()
 
     window.mainloop()
 

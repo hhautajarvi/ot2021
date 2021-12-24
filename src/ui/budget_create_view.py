@@ -40,6 +40,10 @@ class BudgetCreateView:
     
         budget_label = ttk.Label(master=self._frame, text = "Here you can make your budget")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
+
+        exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
+        exit_button.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
         self._choose_budget_sum()
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=170)
@@ -53,3 +57,6 @@ class BudgetCreateView:
         except:
             self._show_error('The amount should be entered in numbers')
 
+    def _exit(self):
+        user_service.exit()
+        

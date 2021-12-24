@@ -4,6 +4,7 @@ from entities.expense import Expense
 from repositories.user_repository import user_repository as default_user_repository
 from repositories.budget_repository import budget_repository as default_budget_repository
 from repositories.expense_repository import expense_repository as default_expense_repository
+import sys
 
 class UserService:
     """Sovelluslogiikasta vastaava luokka
@@ -71,6 +72,11 @@ class UserService:
         """Kirjaa käyttäjän ulos.
         """
         self._user = None
+
+    def exit(self):
+        """Lopettaa sovelluksen
+        """
+        sys.exit()
 
     def create_budget(self, amount):
         """Luo uuden budjetin

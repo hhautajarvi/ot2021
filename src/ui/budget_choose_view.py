@@ -92,6 +92,9 @@ class BudgetChooseView:
         budget_label = ttk.Label(master=self._frame, text="Here you can choose your budget")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
+        exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
+        exit_button.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
         self._view_remaining()
         self._choose_food()
         self._choose_transit()
@@ -153,3 +156,7 @@ class BudgetChooseView:
         except:
             insurance = 0
         self._result_label['text'] = self._remaining - (food + transit + entertainment + living + utilities + insurance)
+
+    def _exit(self):
+        user_service.exit()
+        

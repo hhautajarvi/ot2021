@@ -73,6 +73,9 @@ class LoginView:
         welcome_label = ttk.Label(master=self._frame, text="Welcome to BudgetApp!")
         welcome_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
+        exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
+        exit_button.grid(row=1, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
         self._show_login()
         self._show_register()
 
@@ -102,3 +105,7 @@ class LoginView:
             self._budget_create()
         except:
             self._show_error(f"Username {username} already exists")
+   
+    def _exit(self):
+        user_service.exit()
+    

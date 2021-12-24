@@ -3,14 +3,13 @@ from ui.plotting.plot_view import PlotView
 from services.user_service import user_service
 
 class BudgetView:
-    def __init__(self, root, add_expense_view, login_view, plot_view):
-        self._root = root       
+    def __init__(self, root, add_expense_view, login_view):
+        self._root = root
         self._frame = None
         self._budget = user_service.show_budget()
         self._expenselist, self._expenses_categorized = user_service.return_expenses()
         self._add_expense_view = add_expense_view
         self._login_view = login_view
-        self._plot_view = plot_view
 
         self._initialize()
 
@@ -21,8 +20,8 @@ class BudgetView:
         self._frame.destroy()
 
     def _show_budget(self):
-        intro_text = ttk.Label(master=self._frame, text="Here is your original budget:")
-        budget_text = ttk.Label(master=self._frame, text="What you have used so far:")
+        intro_text = ttk.Label(master=self._frame, text="Your original budget:")
+        budget_text = ttk.Label(master=self._frame, text="This months expenditures:")
 
         amount_text = ttk.Label(master=self._frame, text="Total budget:")
         total_amount_text = ttk.Label(master=self._frame, text=f"{self._budget.amount}")
@@ -77,7 +76,7 @@ class BudgetView:
         used_insurance_text.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _show_expenses(self):
-        expense_label = ttk.Label(master=self._frame, text= "Here are your past expenses")
+        expense_label = ttk.Label(master=self._frame, text= "Your past expenses")
         expense_label.grid(column=1, padx=5, pady=5)
         for expense in self._expenselist:
             category_number = expense.category
@@ -95,30 +94,31 @@ class BudgetView:
                 category_name = "Insurance"
             newexpense_label = ttk.Label(master=self._frame, text=f"{category_name}" \
                 f" cost {expense.amount} euros in {expense.date}, comment: {expense.comment}")
-            newexpense_label.grid(column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+            newexpense_label.grid(column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        budget_label = ttk.Label(master=self._frame, text = "Here you can view your budget and add expenses")
-        budget_label.grid(row=0, column=0, columnspan=3, padx=5, pady=5)
+        logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout_click)
+        logout_button.grid(row=0, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+
+        exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
+        exit_button.grid(row=0, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         self._show_budget()
+        self._show_expenses()
+        plots = PlotView(self._frame)
+        plots.plot()
 
         add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._add_expense_view)
-        add_expense_button.grid(row=9, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        plot_button = ttk.Button(master=self._frame, text="See plots", command=self._plot_view)
-        plot_button.grid(row=9, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout_click)
-        logout_button.grid(row=9, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        self._show_expenses()
+        add_expense_button.grid(row=9, column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=300)
 
     def _logout_click(self):
         user_service.logout()
         self._login_view()
+
+    def _exit(self):
+        user_service.exit()
         
