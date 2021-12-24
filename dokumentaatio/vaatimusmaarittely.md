@@ -29,8 +29,8 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 * Käyttäjä voi lisätä uuden kulun budjettiin - Tehty
 * Käyttäjä näkee paljonko tämän kuun budjetista on käytetty - Tehty
 * Käyttäjä näkee viimeisen kuuden kuukauden toteutuneet kulut graafisena esityksenä
-* Valitsemalla tietyn kuukauden budjetin käyttäjä näkee sen kuukauden kulut tarkemmin eriteltynä
-* Valikosta valitsemalla voi nähdä aikaisempien kuukausien toteutuneet budjetit ja löytää niiden erittelyt
+* Valitsemalla tietyn kuukauden budjetin käyttäjä näkee sen kuukauden kulut tarkemmin eriteltynä -Tehty
+* Valikosta valitsemalla voi nähdä aikaisempien kuukausien toteutuneet budjetit ja löytää niiden erittelyt - Tehty
 
 ### Kulun lisäys budjettiin
 
@@ -38,7 +38,7 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 
 ### Toteutuneen kuukausibudjetin erittelyn tarkastelu
 
-* Käyttäjä voi klikata nappulaa ja nähdä graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty (tällä hetkellä erillinen ikkuna)
+* Käyttäjä voi klikata nappulaa ja nähdä graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty
 * Graafien alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty ilman jaottelua
 * Käyttäjä voi kirjautua ulos - Tehty
 

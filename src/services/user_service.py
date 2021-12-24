@@ -1,10 +1,10 @@
+import sys
 from datetime import date
 from entities.budget import Budget
 from entities.expense import Expense
 from repositories.user_repository import user_repository as default_user_repository
 from repositories.budget_repository import budget_repository as default_budget_repository
 from repositories.expense_repository import expense_repository as default_expense_repository
-import sys
 
 class UserService:
     """Sovelluslogiikasta vastaava luokka
@@ -150,5 +150,16 @@ class UserService:
             Palauttaa käyttäjän expenselist ja expenses_categorized -listat
         """
         return self._user.expenselist, self._user.expenses_categorized
+
+    def month_check(self, month, year):
+        """Tarkastaa onko haettu kuukausi kululistassa.
+        Jos ei ole, luo siihen tyhjän kululistan.
+
+        Args:
+            month (int): haettu kuukausi
+            year (int): haettu vuosi
+        """
+        if (month, year) not in self._user.expenses_categorized:
+            self._user.expenses_categorized[(month, year)] = [0, 0, 0, 0, 0, 0, 0]
 
 user_service = UserService()

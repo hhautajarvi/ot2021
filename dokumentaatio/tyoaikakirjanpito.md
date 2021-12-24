@@ -12,4 +12,6 @@
 |07.12.  | 7	   | Kulujen luomista, testejä, sekvenssikaavio, release|
 |13.12.  | 2	   | Refaktorointia, docstring-dokumentointia|
 |14.12.  | 8	   | Virheilmoitusten tekoa, matplotlib-kirjastoon tutustumista ja ensimmäisten graafisten esitysten tekoa, dokumentaation kirjoittamista|
-|yht.  | 46	   | |
+|23.12.  | 8	   | Ui-bugiin korjauksen etsimistä ja monien erilaisten purkkaviritysten kokeilua|
+|24.12.  | 4	   | Erilliset kuukausinäkymät eri kuukausille|
+|yht.  | 58	   | |
