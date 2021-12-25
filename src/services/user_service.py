@@ -1,5 +1,4 @@
 import sys
-from datetime import date
 from entities.budget import Budget
 from entities.expense import Expense
 from repositories.user_repository import user_repository as default_user_repository
@@ -119,7 +118,7 @@ class UserService:
         self._budget_repository.modify_budget(self._user.user_id, food, transit,\
             entertainment, living, utilities, insurance)
 
-    def create_expense(self, amount, category, comment):
+    def create_expense(self, amount, category, comment, datenow):
         """Luo uuden kulun
 
         Args:
@@ -127,9 +126,8 @@ class UserService:
             category (int): Kulun kategoria
                 (1=food, 2=transit, 3=entertainment, 4=living, 5=utilities, 6=insurance)
             comment (str): Kommentti kulusta
+            datenow (date): kulun päivämäärä
         """
-        now = date.today()
-        datenow = now.isoformat()
         new_expense = Expense(self._user.user_id, amount, category, comment, datenow)
         self._user.add_expense(new_expense)
         self._expense_repository.create_expense(self._user.user_id, \

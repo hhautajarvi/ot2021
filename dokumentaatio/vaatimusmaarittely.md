@@ -34,7 +34,7 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 
 ### Kulun lisäys budjettiin
 
-* Käyttäjä voi valita toteutuneen kulun summan, kategorian ja halutessaan kirjoittaa tarkemman kommentin kulusta - Tehty
+* Käyttäjä voi valita toteutuneen kulun summan, kategorian, päiväyksen ja halutessaan kirjoittaa tarkemman kommentin kulusta - Tehty
 
 ### Toteutuneen kuukausibudjetin erittelyn tarkastelu
 
@@ -45,7 +45,6 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 ## Jatkokehitysideoita
 
 * Tehdyn budjetin ja kulujen muokkaus jälkikäteen
-* Käyttäjä voi valita lisääkö kulun tälle päivälle vai jollekin menneelle tai tulevalle päivälle
 * Käyttäjä voi valita tekeekö saman budjetin joka kuukaudelle vai haluaako tehdä erilaisen budjetin jokaiselle kuukaudelle
 * Käyttäjä voi valita budjettiin tuloille eri kategorioita (palkka, tuet, sijoitustulot jne.) ja kuukausierittelyistä voi seurata myös tulojen muutoksia
 * Käyttäjä voi seurata pidemmällä aikavälillä kuinka on onnistunut budjetoinnissa ja millä lailla varallisuutensa on kehittynyt

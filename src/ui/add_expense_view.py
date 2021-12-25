@@ -1,5 +1,7 @@
 from tkinter import Radiobutton, ttk, constants, IntVar, StringVar
 from services.user_service import user_service
+from tkcalendar import DateEntry
+from datetime import date
 
 class AddExpenseView:
     def __init__(self, root, show_budget_view):
@@ -46,6 +48,13 @@ class AddExpenseView:
         comment_label.grid(padx=5, pady=5)
         self._comment.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
+    def _choose_date(self):
+        date_label = ttk.Label(master=self._frame, text="Choose a date for the expense:")
+        self._calendar = DateEntry(master=self._frame)
+        self._calendar.set_date(date.today())
+        date_label.grid(padx=5, pady=5)
+        self._calendar.grid(row=4, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
     def _show_error(self, message):
         self._error_variable.set(message)
         self._error_label.grid()
@@ -68,7 +77,8 @@ class AddExpenseView:
 
         self._enter_amount()
         self._write_comment()
-        self._choose_category()  
+        self._choose_date()
+        self._choose_category()
 
         add_button = ttk.Button(master=self._frame, text="Add", command=self._addbutton_click)
         add_button.grid(padx=5, pady=5)
@@ -83,11 +93,13 @@ class AddExpenseView:
             self._show_error(f"Amount is required in numbers")
             return
         comment = self._comment.get()
+        calendar = self._calendar.get_date()
+        datenow = calendar.isoformat()
         if len(comment) > 50:
             self._show_error(f"Comment too long, max length is 50 characters")
             return
         category = int(self._category.get())
-        user_service.create_expense(amount, category, comment)
+        user_service.create_expense(amount, category, comment, datenow)
         self._show_budget_view()
 
     def _exit(self):
