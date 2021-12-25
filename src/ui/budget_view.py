@@ -83,25 +83,29 @@ class BudgetView:
     def _show_expenses(self):
         expense_label = ttk.Label(master=self._frame, text= "Your past expenses")
         expense_label.grid(column=1, padx=5, pady=5)
-        for expense in self._expenselist:
-            expense_date = date.fromisoformat(expense.date)
-            if expense_date.month == self._month and expense_date.year == self._year:
-                category_number = expense.category
-                if category_number == 1:
-                    category_name = "Food"
-                elif category_number == 2:
-                    category_name = "Transit"
-                elif category_number == 3:
-                    category_name = "Entertainment"
-                elif category_number == 4:
-                    category_name = "Living"
-                elif category_number == 5:
-                    category_name = "Utilities"
-                elif category_number == 6:
-                    category_name = "Insurance"
-                newexpense_label = ttk.Label(master=self._frame, text=f"{category_name}" \
-                    f" cost {expense.amount} euros in {expense.date}, comment: {expense.comment}")
-                newexpense_label.grid(column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        category_number = 1
+        for list in self._expenselist[1:]:
+            if category_number == 1:
+                category_name = "Food"
+            elif category_number == 2:
+                category_name = "Transit"
+            elif category_number == 3:
+                category_name = "Entertainment"
+            elif category_number == 4:
+                category_name = "Living"
+            elif category_number == 5:
+                category_name = "Utilities"
+            elif category_number == 6:
+                category_name = "Insurance"
+            cat_name_label = ttk.Label(master=self._frame, text=f"{category_name} costs:")
+            cat_name_label.grid(column=0, padx=5, pady=5)
+            category_number += 1
+            for expense in list:
+                expense_date = date.fromisoformat(expense.date)
+                if expense_date.month == self._month and expense_date.year == self._year:         
+                    newexpense_label = ttk.Label(master=self._frame, text=f"{expense.amount} " \
+                        f"euros in {expense.date}, comment: {expense.comment}")
+                    newexpense_label.grid(column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

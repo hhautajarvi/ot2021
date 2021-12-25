@@ -8,7 +8,8 @@ class User:
         username: käyttäjänimi
         password: salasana
         budget: käyttäjän käytössä oleva budjettiolio
-        expenselist: käyttäjän kulut listassa
+        expenselist: käyttäjän kulut eriteltyinä eri listoihin kategorian \
+            mukaan
         expenses_categorized: käyttäjän kulut kategorisoituna sanakirjassa \
             kuukausittain listattuna
     """
@@ -24,7 +25,7 @@ class User:
         self.username = username
         self.password = password
         self.budget = None
-        self.expenselist = []
+        self.expenselist = [[],[],[],[],[],[],[]]
         self.expenses_categorized = {}
         #0= total 1=food, 2=transit, 3=entertainment, 4=living, 5=utilities, 6=insurance
 
@@ -42,4 +43,4 @@ class User:
         self.expenses_categorized[(expense_date.month, expense_date.year)][expense.category] \
              += expense.amount
         self.expenses_categorized[(expense_date.month, expense_date.year)][0] += expense.amount
-        self.expenselist.append(expense)
+        self.expenselist[expense.category].append(expense)

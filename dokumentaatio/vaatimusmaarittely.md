@@ -39,7 +39,7 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 ### Toteutuneen kuukausibudjetin erittelyn tarkastelu
 
 * Käyttäjä voi klikata nappulaa ja nähdä graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty
-* Graafien alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty ilman jaottelua
+* Graafien alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty
 * Käyttäjä voi kirjautua ulos - Tehty
 
 ## Jatkokehitysideoita
