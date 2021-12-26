@@ -1,9 +1,12 @@
 from tkinter import Radiobutton, ttk, constants, IntVar, StringVar
 from services.user_service import user_service
+from services.expense_service import expense_service
 from tkcalendar import DateEntry
 from datetime import date
 
 class AddExpenseView:
+    """Ui-luokka jonka avulla tehdään uusi kulu
+    """
     def __init__(self, root, show_budget_view):
         self._root = root
         self._frame = None
@@ -99,7 +102,7 @@ class AddExpenseView:
             self._show_error(f"Comment too long, max length is 50 characters")
             return
         category = int(self._category.get())
-        user_service.create_expense(amount, category, comment, datenow)
+        expense_service.create_expense(amount, category, comment, datenow)
         self._show_budget_view()
 
     def _exit(self):

@@ -1,12 +1,15 @@
 from tkinter import ttk, constants, IntVar, StringVar
 from services.user_service import user_service
+from services.budget_service import budget_service
 
 class BudgetChooseView:
+    """Ui-luokka jossa valitaan budjetin alakategorioiden summat
+    """
     def __init__(self, root, show_budget_view):
         self._root = root
         self._frame = None
         self._show_budget_view = show_budget_view
-        self._modify = user_service.check_modify()
+        self._modify = budget_service.check_modify()
 
         self._place_budget_amounts()
 
@@ -19,8 +22,8 @@ class BudgetChooseView:
         self._frame.destroy()
 
     def _place_budget_amounts(self):
-        if user_service.check_budget():
-            budget = user_service.show_budget()
+        if budget_service.check_budget():
+            budget = budget_service.show_budget()
             self._food = IntVar(value = budget.food)
             self._transit = IntVar(value = budget.transit)
             self._entertainment = IntVar(value = budget.entertainment)
@@ -43,7 +46,7 @@ class BudgetChooseView:
         self._insurance.trace_add("write", self.calculate_sum)
 
     def _view_remaining(self):
-        self._total = user_service.show_total()
+        self._total = budget_service.show_total()
         total_label = ttk.Label(master=self._frame, text="You have total of in your budget: ")
         total_sum_label = ttk.Label(master=self._frame, text=f"{self._total}")
         self._result_label = ttk.Label(master=self._frame, text=self._total-(self._food.get() + self._transit.get() + self._entertainment.get() \
@@ -143,7 +146,7 @@ class BudgetChooseView:
             return
         amount = food + transit + entertainment + living + utilities + insurance
         if self._total >= amount:
-            user_service.modify_budget(food, transit, entertainment, living, utilities, insurance)
+            budget_service.modify_budget(food, transit, entertainment, living, utilities, insurance)
             self._show_budget_view()
         else:
             self.destroy()

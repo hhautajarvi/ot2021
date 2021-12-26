@@ -1,7 +1,10 @@
 from tkinter import ttk, constants, StringVar
 from services.user_service import user_service
+from services.budget_service import budget_service
 
 class LoginView:
+    """Ui-luokka jossa voi kirjautua sisään tai rekisteröityä
+    """
     def __init__(self, root, budget_create, budget_view): 
         self._root = root
         self._frame = None
@@ -22,7 +25,7 @@ class LoginView:
         self._username_entry = ttk.Entry(master=self._frame)
 
         password_label = ttk.Label(master=self._frame, text="Password")
-        self._password_entry = ttk.Entry(master=self._frame)
+        self._password_entry = ttk.Entry(master=self._frame, show="*")
 
         login_label.grid(row=2, column=0, columnspan=2, sticky=constants.W, padx=5, pady=5)
 
@@ -43,7 +46,7 @@ class LoginView:
         self._newuser_entry = ttk.Entry(master=self._frame)
 
         newpassword_label = ttk.Label(master=self._frame, text="Choose a password")
-        self._newpassword_entry = ttk.Entry(master=self._frame)
+        self._newpassword_entry = ttk.Entry(master=self._frame, show="*")
         
         register_label.grid(row=6, column=0, columnspan=2, sticky=constants.W, padx=5, pady=5)
 
@@ -87,7 +90,7 @@ class LoginView:
         password = self._password_entry.get()
         try:
             user_service.login(username, password) 
-            if user_service.check_budget():
+            if budget_service.check_budget():
                 self._budget_view()
             else:
                 self._budget_create()

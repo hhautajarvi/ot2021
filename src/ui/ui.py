@@ -6,6 +6,8 @@ from ui.add_expense_view import AddExpenseView
 from ui.plotting.plot_view import PlotView
 
 class UI:
+    """Käyttöliittymän juurikompontentin siirtämisestä muille Ui-luokille huolehtiva luokka
+    """
     def __init__(self, root):
         self._root = root
         self._view = None

@@ -1,7 +1,10 @@
 from tkinter import ttk, constants, StringVar
 from services.user_service import user_service
+from services.budget_service import budget_service
 
 class BudgetCreateView:
+    """Ui-luokka jossa valitaan budjetin kokonaissumma
+    """
     def __init__(self, root, choose_budget_view):
         self._root = root
         self._frame = None
@@ -21,7 +24,7 @@ class BudgetCreateView:
         sum_label.grid(padx=5, pady=5)
         self._budget_sum.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         
-        create_button = ttk.Button(master=self._frame, text="Create", command=self.createbutton_click)
+        create_button = ttk.Button(master=self._frame, text="Create", command=self._createbutton_click)
         create_button.grid(row=3, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _show_error(self, message):
@@ -49,10 +52,10 @@ class BudgetCreateView:
         self._frame.grid_columnconfigure(1, weight=1, minsize=170)
         self._hide_error()
 
-    def createbutton_click(self):
+    def _createbutton_click(self):
         sum = self._budget_sum.get()
         try:
-            user_service.create_budget(int(sum))
+            budget_service.create_budget(int(sum))
             self._choose_budget_view()
         except:
             self._show_error('The amount should be entered in numbers')

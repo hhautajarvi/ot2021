@@ -1,13 +1,16 @@
 from tkinter import ttk, constants
 from ui.plotting.plot_view import PlotView
 from services.user_service import user_service
+from services.budget_service import budget_service
 from datetime import date
 
 class BudgetView:
+    """Ui-luokka jossa voi selata eri kuukausien budjettien tietoja
+    """
     def __init__(self, root, add_expense_view, login_view, choose_budget):
         self._root = root
         self._frame = None
-        self._budget = user_service.show_budget()
+        self._budget = budget_service.show_budget()
         self._expenselist, self._expenses_categorized = user_service.return_expenses()
         self._add_expense_view = add_expense_view
         self._login_view = login_view
@@ -143,6 +146,7 @@ class BudgetView:
 
     def _logout_click(self):
         user_service.logout()
+        budget_service.budget_logout()
         self._login_view()
 
     def _exit(self):
@@ -169,5 +173,5 @@ class BudgetView:
         self.pack()
 
     def _modify_budget_click(self):
-        user_service.modify_on()
+        budget_service.modify_on()
         self._choose_budget_view()

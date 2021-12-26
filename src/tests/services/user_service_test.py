@@ -3,6 +3,7 @@ from services.user_service import user_service
 from repositories.budget_repository import budget_repository
 from repositories.user_repository import user_repository
 from repositories.expense_repository import expense_repository
+from datetime import date
 
 class TestUserService(unittest.TestCase):
     def setUp(self):
@@ -76,9 +77,10 @@ class TestUserService(unittest.TestCase):
         self.assertEqual(len(expenselist[1]), 1)
         self.assertEqual(len(expenselist[4]), 1)
         self.assertEqual(len(expenselist[0]), 0)
-        #self.assertEqual(expenselistcat[(12, 2021)][0], 300)
-        #self.assertEqual(expenselistcat[(12, 2021)][1], 200)
-        #self.assertEqual(expenselistcat[(12, 2021)][4], 100)
+        expense_date = date.fromisoformat("2012-12-26")
+        self.assertEqual(expenselistcat[(expense_date.month, expense_date.year)][0], 300)
+        self.assertEqual(expenselistcat[(expense_date.month, expense_date.year)][1], 200)
+        self.assertEqual(expenselistcat[(expense_date.month, expense_date.year)][4], 100)
 
     def test_logout(self):
         user_service.logout()
