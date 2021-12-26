@@ -50,45 +50,45 @@ class BudgetChooseView:
             + self._living.get() + self._utilities.get() + self._insurance.get())
         money_label = ttk.Label(master=self._frame, text="You have left in your budget: ")
         total_label.grid(padx=5, pady=5)
-        total_sum_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
+        total_sum_label.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5) 
         money_label.grid(padx=5, pady=5)
-        self._result_label.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
+        self._result_label.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5) 
 
     def _choose_food(self):
         food_label = ttk.Label(master=self._frame, text="Choose food budget:")
         self._food_sum = ttk.Entry(master=self._frame, textvariable=self._food)
         food_label.grid(padx=5, pady=5)
-        self._food_sum.grid(row=4, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)     
+        self._food_sum.grid(row=4, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)     
 
     def _choose_transit(self):
         transit_label = ttk.Label(master=self._frame, text="Choose transit budget:")
         self._transit_sum = ttk.Entry(master=self._frame, textvariable=self._transit)
         transit_label.grid(padx=5, pady=5)
-        self._transit_sum.grid(row=5, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._transit_sum.grid(row=5, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _choose_entertainment(self):
         entertainment_label = ttk.Label(master=self._frame, text="Choose entertainment budget:")
         self._entertainment_sum = ttk.Entry(master=self._frame, textvariable=self._entertainment)
         entertainment_label.grid(padx=5, pady=5)
-        self._entertainment_sum.grid(row=6, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._entertainment_sum.grid(row=6, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
  
     def _choose_living(self):
         living_label = ttk.Label(master=self._frame, text="Choose living budget:")
         self._living_sum = ttk.Entry(master=self._frame, textvariable=self._living)
         living_label.grid(padx=5, pady=5)
-        self._living_sum.grid(row=7, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._living_sum.grid(row=7, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _choose_utilities(self):
         utilities_label = ttk.Label(master=self._frame, text="Choose utilities budget:")
         self._utilities_sum = ttk.Entry(master=self._frame, textvariable=self._utilities)
         utilities_label.grid(padx=5, pady=5)
-        self._utilities_sum.grid(row=8, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._utilities_sum.grid(row=8, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _choose_insurance(self):
         insurance_label = ttk.Label(master=self._frame, text="Choose insurance budget:")
         self._insurance_sum = ttk.Entry(master=self._frame, textvariable=self._insurance)
         insurance_label.grid(padx=5, pady=5)
-        self._insurance_sum.grid(row=9, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._insurance_sum.grid(row=9, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _show_error(self, message):
         self._error_variable.set(message)
@@ -102,7 +102,7 @@ class BudgetChooseView:
 
         self._error_variable = StringVar(self._frame)
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(columnspan=2, padx=5, pady=5)
 
         if self._modify:
             budget_label = ttk.Label(master=self._frame, text="Here you can modify your budget")

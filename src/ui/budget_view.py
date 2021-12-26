@@ -98,14 +98,14 @@ class BudgetView:
                 category_name = "Utilities"
             elif category_number == 6:
                 category_name = "Insurance"
-            cat_name_label = ttk.Label(master=self._frame, text=f"{category_name} costs:")
+            cat_name_label = ttk.Label(master=self._frame, text=f"{category_name} expenses:")
             cat_name_label.grid(column=0, padx=5, pady=5)
             category_number += 1
             for expense in list:
                 expense_date = date.fromisoformat(expense.date)
                 if expense_date.month == self._month and expense_date.year == self._year:         
-                    newexpense_label = ttk.Label(master=self._frame, text=f"{expense.amount} " \
-                        f"euros in {expense.date}, comment: {expense.comment}")
+                    newexpense_label = ttk.Label(master=self._frame, text=f'{expense.amount} ' \
+                        f'euros in {expense_date.day}.{expense_date.month}.{expense_date.year}, "{expense.comment}"')
                     newexpense_label.grid(column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _initialize(self):
@@ -118,10 +118,10 @@ class BudgetView:
         next_month_button.grid(row=0, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout_click)
-        logout_button.grid(row=0, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        logout_button.grid(row=0, column=3, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
-        exit_button.grid(row=0, column=3, sticky=(constants.E, constants.W), padx=5, pady=5)
+        exit_button.grid(row=0, column=4, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         user_service.month_check(self._month, self._year)
         self._show_budget()
@@ -133,9 +133,13 @@ class BudgetView:
         modify_budget_button.grid(row=9, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._add_expense_view)
-        add_expense_button.grid(row=9, column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        add_expense_button.grid(row=9, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-        self._frame.grid_columnconfigure(1, weight=1, minsize=300)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=200)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=200)
+        self._frame.grid_columnconfigure(2, weight=1, minsize=200)
+
+        plots.close()
 
     def _logout_click(self):
         user_service.logout()

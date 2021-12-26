@@ -21,7 +21,7 @@ class AddExpenseView:
         amount_label = ttk.Label(master=self._frame, text="Enter expense amount:")
         self._amount_sum = ttk.Entry(master=self._frame)
         amount_label.grid(padx=5, pady=5)
-        self._amount_sum.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)  
+        self._amount_sum.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)  
 
     def _choose_category(self):
         category_label = ttk.Label(master=self._frame, text="Choose category")
@@ -46,14 +46,14 @@ class AddExpenseView:
         comment_label = ttk.Label(master=self._frame, text="Write a comment of the expense:")
         self._comment = ttk.Entry(master=self._frame)
         comment_label.grid(padx=5, pady=5)
-        self._comment.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._comment.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _choose_date(self):
         date_label = ttk.Label(master=self._frame, text="Choose a date for the expense:")
         self._calendar = DateEntry(master=self._frame)
         self._calendar.set_date(date.today())
         date_label.grid(padx=5, pady=5)
-        self._calendar.grid(row=4, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._calendar.grid(row=4, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     def _show_error(self, message):
         self._error_variable.set(message)

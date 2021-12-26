@@ -19,7 +19,7 @@ class BudgetCreateView:
         sum_label = ttk.Label(master=self._frame, text="Enter budget sum:")
         self._budget_sum = ttk.Entry(master=self._frame)
         sum_label.grid(padx=5, pady=5)
-        self._budget_sum.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        self._budget_sum.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         
         create_button = ttk.Button(master=self._frame, text="Create", command=self.createbutton_click)
         create_button.grid(row=3, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
@@ -36,7 +36,7 @@ class BudgetCreateView:
 
         self._error_variable = StringVar(self._frame)
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(columnspan=2, padx=5, pady=5)
     
         budget_label = ttk.Label(master=self._frame, text = "Here you can make your budget")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)

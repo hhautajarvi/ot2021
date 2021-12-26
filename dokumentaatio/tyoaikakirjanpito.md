@@ -14,4 +14,5 @@
 |14.12.  | 8	   | Virheilmoitusten tekoa, matplotlib-kirjastoon tutustumista ja ensimmäisten graafisten esitysten tekoa, dokumentaation kirjoittamista|
 |23.12.  | 8	   | Ui-bugiin korjauksen etsimistä ja monien erilaisten purkkaviritysten kokeilua|
 |24.12.  | 4	   | Erilliset kuukausinäkymät eri kuukausille|
-|yht.  | 58	   | |
+|25.12.  | 4	   | Erilaisia pieniä lisäyksiä toimintoihin|
+|yht.  | 62    | |

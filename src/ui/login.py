@@ -68,7 +68,7 @@ class LoginView:
 
         self._error_variable = StringVar(self._frame)
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(columnspan=2, padx=5, pady=5)
 
         welcome_label = ttk.Label(master=self._frame, text="Welcome to BudgetApp!")
         welcome_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)

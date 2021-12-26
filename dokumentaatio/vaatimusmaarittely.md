@@ -38,13 +38,14 @@ Toteutuneista kuluista ja niiden vertautumisesta suunniteltuun budjettiin näkee
 
 ### Toteutuneen kuukausibudjetin erittelyn tarkastelu
 
-* Käyttäjä voi klikata nappulaa ja nähdä graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty
-* Graafien alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty
+* Käyttäjä näkee sekä numeroina että graafisena esityksenä toteutuneen kuukausibudjetin kategorioittain ja tavoitteena olleen budjetin ja niiden erot - Tehty
+* Numeroesityksen alla on listauksena kuukauden kulut eriteltynä yksittäin järjestettynä kategorioittain - Tehty
 * Käyttäjä voi kirjautua ulos - Tehty
+* Käyttäjä voi myös muokata budjetin kategorioiden summia - Tehty
 
 ## Jatkokehitysideoita
 
-* Tehdyn budjetin ja kulujen muokkaus jälkikäteen
+* Kulujen muokkaus jälkikäteen
 * Käyttäjä voi valita tekeekö saman budjetin joka kuukaudelle vai haluaako tehdä erilaisen budjetin jokaiselle kuukaudelle
 * Käyttäjä voi valita budjettiin tuloille eri kategorioita (palkka, tuet, sijoitustulot jne.) ja kuukausierittelyistä voi seurata myös tulojen muutoksia
 * Käyttäjä voi seurata pidemmällä aikavälillä kuinka on onnistunut budjetoinnissa ja millä lailla varallisuutensa on kehittynyt
