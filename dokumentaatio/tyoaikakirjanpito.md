@@ -13,6 +13,7 @@
 |13.12.  | 2	   | Refaktorointia, docstring-dokumentointia|
 |14.12.  | 8	   | Virheilmoitusten tekoa, matplotlib-kirjastoon tutustumista ja ensimmäisten graafisten esitysten tekoa, dokumentaation kirjoittamista|
 |23.12.  | 8	   | Ui-bugiin korjauksen etsimistä ja monien erilaisten purkkaviritysten kokeilua|
-|24.12.  | 4	   | Erilliset kuukausinäkymät eri kuukausille|
+|24.12.  | 3	   | Erilliset kuukausinäkymät eri kuukausille|
 |25.12.  | 4	   | Erilaisia pieniä lisäyksiä toimintoihin|
-|yht.  | 62    | |
+|26.12.  | 7	   | Pientä hiomista, testien korjauksia, dokumentaation tekemistä|
+|yht.  | 68    | |

@@ -90,5 +90,4 @@ class BudgetService:
         self._budget = None
         self._budget_modify = False
 
-
 budget_service = BudgetService()

@@ -20,13 +20,13 @@ Sovelluksen avulla käyttäjät voivat hallinnoida ja suunnitella rahankäyttö�
 
 [Arkkitehtuurikuvaus](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/testausdokumentti.md)
+
+
 ## Python versiot
 
 Toimivuus testattu Pythonin versiolla 3.8.10.
 
-## Ohjelman tilanne
-
-Projektissa toimii tällä hetkellä graafisessa käyttöliittymässä käyttäjän kirjautuminen ja rekisteröinti, budjetin luominen ja kulujen lisääminen budjettiin. Käyttäjä voi tarkastella budjettia ja toteutuneita kuluja.
 
 ## Asennus
 

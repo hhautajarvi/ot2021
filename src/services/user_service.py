@@ -6,7 +6,8 @@ from repositories.expense_repository import expense_repository as default_expens
 class UserService:
     """Käyttäjään liittyvästä sovelluslogiikasta vastaava luokka
     """
-    def __init__(self, user_repository=default_user_repository, expense_repository=default_expense_repository):
+    def __init__(self, user_repository=default_user_repository, \
+        expense_repository=default_expense_repository):
         """Luokan konstruktori
 
         Args:

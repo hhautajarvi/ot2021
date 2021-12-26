@@ -12,7 +12,7 @@ class ExpenseService:
             expense_repository (optional): Olio, jolla on ExpenseRepository-luokkaa vastaavat \
                 metodit. Defaults to default_expense_repository.
         """
-        self._expense_repository = expense_repository 
+        self._expense_repository = expense_repository
 
     def create_expense(self, amount, category, comment, datenow):
         """Luo uuden kulun

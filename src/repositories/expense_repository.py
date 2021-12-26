@@ -1,4 +1,3 @@
-from entities.expense import Expense
 from database_connection import get_database_connection
 
 class ExpenseRepository:
@@ -22,15 +21,11 @@ class ExpenseRepository:
                 (1=food, 2=transit, 3=entertainment, 4=living, 5=utilities, 6=insurance)
             comment (str): Kommentti kulusta
             date (str/date): Kulun päivämäärä jolloin se on syötetty
-
-        Returns:
-            Palauttaa Expense-luokan olion
         """
         cursor = self.connection.cursor()
         cursor.execute("INSERT INTO Expense (user_id, amount, category, comment, date)" \
             " VALUES (?,?,?,?,?)", (user_id, amount, category, comment, date))
         self.connection.commit()
-        return Expense(user_id, amount, category, comment, date)
 
     def find_user_expenses(self, user_id):
         """Hakee valitun käyttäjän kulut tietokannasta
