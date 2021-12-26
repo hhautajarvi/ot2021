@@ -17,7 +17,6 @@ class UserService:
                 metodit. Defaults to default_expense_repository.
         """
         self._user = None
-        self._budget = None
         self._user_repository = user_repository
         self._expense_repository = expense_repository
         self._budget_modify = False

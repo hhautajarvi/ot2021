@@ -17,9 +17,10 @@ class TestExpenseRepository(unittest.TestCase):
         self.assertEqual(self.expenses[0][5], 2021-12-10)
 
     def test_create_expense(self):
-        new_expense = expense_repository.create_expense(1, 200, 4, "vuokra", 2021-12-12)
-        self.assertEqual(new_expense.user_id, 1)
-        self.assertEqual(new_expense.amount, 200)
-        self.assertEqual(new_expense.category, 4)
-        self.assertEqual(new_expense.comment, "vuokra")
-        self.assertEqual(new_expense.date, 2021-12-12)
+        expense_repository.create_expense(1, 200, 4, "vuokra", 2021-12-12)
+        new_expense = expense_repository.find_user_expenses(1)
+        self.assertEqual(new_expense[1][1], 1)
+        self.assertEqual(new_expense[1][2], 200)
+        self.assertEqual(new_expense[1][3], 4)
+        self.assertEqual(new_expense[1][4], "vuokra")
+        self.assertEqual(new_expense[1][5], 2021-12-12)

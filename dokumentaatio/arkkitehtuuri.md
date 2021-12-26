@@ -29,10 +29,12 @@ Sovelluksen toimintalogiikasta vastaavat paukkauksen services UserService, Budge
 * create_new_user(username, password)
 * login(username, password)
 * find_expenses()
+
 BudgetServicessä Budget-luokkaan liittyvät, esimerkiksi:
-* create_budget(amoun)
+* create_budget(amount)
 * show_budget()
 * modify_budget()
+
 ja ExpenseServicessä Expense-luokkaan liittyvä:
 * create_expense(amount, category, comment, datenow)
 
