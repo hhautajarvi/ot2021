@@ -16,7 +16,7 @@ Käyttöliittymässä on viisi erillistä näkymää ja kuusi luokkaa:
 * [Budjetin summan valinta](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_create_view.py)
 * [Budjetin kategorioiden summien valinta ja muokkaus](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_choose_view.py)
 * [Budjetin tarkastelu](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_view.py)
-* [Budjetin graafinen tarkastelu (vain luokka)](https://github.com/hhautajarvi/ot2021/tree/master/src/ui/plotting)
+* [Budjetin graafinen tarkastelu (vain luokka)](hhttps://github.com/hhautajarvi/ot2021/blob/master/src/ui/plotting/plot_view.py)
 * [Kulun lisäys](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/add_expense_view.py)
 
 Nämä on toteutettu omina luokkinaan ja näistä jokainen on yksi kerrallaan näkyvillä budjetin graafista tarkastelua lukuunottamatta. Budjetin graafinen tarkastelu on tehty omana luokkanaan jota 'Budjetin tarkastelu'-näkymä kutsuu ja nämä näkyvät samanaikaisesti käyttäjälle. Eri näkymien näyttämisestä vastaa [UI](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/ui.py)-luokka. Käyttöliittymä on pyritty eristämään sovelluslogiikasta ja se vain kutsuu sovelluslogiikkaluokkien metodeja.
