@@ -6,18 +6,9 @@ class BudgetChooseView:
         self._root = root
         self._frame = None
         self._show_budget_view = show_budget_view
-        self._food = IntVar()
-        self._transit = IntVar()
-        self._entertainment = IntVar()
-        self._living = IntVar()
-        self._utilities = IntVar()
-        self._insurance = IntVar()
-        self._food.trace_add("write", self.calculate_sum)
-        self._transit.trace_add("write", self.calculate_sum)
-        self._entertainment.trace_add("write", self.calculate_sum)
-        self._living.trace_add("write", self.calculate_sum)
-        self._utilities.trace_add("write", self.calculate_sum)
-        self._insurance.trace_add("write", self.calculate_sum)
+        self._modify = user_service.check_modify()
+
+        self._place_budget_amounts()
 
         self._initialize()
 
@@ -27,15 +18,39 @@ class BudgetChooseView:
     def destroy(self):
         self._frame.destroy()
 
+    def _place_budget_amounts(self):
+        if user_service.check_budget():
+            budget = user_service.show_budget()
+            self._food = IntVar(value = budget.food)
+            self._transit = IntVar(value = budget.transit)
+            self._entertainment = IntVar(value = budget.entertainment)
+            self._living = IntVar(value = budget.living)
+            self._utilities = IntVar(value = budget.utilities)
+            self._insurance = IntVar(value = budget.insurance)   
+        else:
+            self._food = IntVar()
+            self._transit = IntVar()
+            self._entertainment = IntVar()
+            self._living = IntVar()
+            self._utilities = IntVar()
+            self._insurance = IntVar()         
+
+        self._food.trace_add("write", self.calculate_sum)
+        self._transit.trace_add("write", self.calculate_sum)
+        self._entertainment.trace_add("write", self.calculate_sum)
+        self._living.trace_add("write", self.calculate_sum)
+        self._utilities.trace_add("write", self.calculate_sum)
+        self._insurance.trace_add("write", self.calculate_sum)
+
     def _view_remaining(self):
-        self._remaining = user_service.show_remaining()
-        remaining_label = ttk.Label(master=self._frame, text="You have total of in your budget: ")
-        remaining_sum_label = ttk.Label(master=self._frame, text=f"{self._remaining}")
+        self._total = user_service.show_total()
+        total_label = ttk.Label(master=self._frame, text="You have total of in your budget: ")
+        total_sum_label = ttk.Label(master=self._frame, text=f"{self._total}")
         self._result_label = ttk.Label(master=self._frame, text=self._food.get() + self._transit.get() + self._entertainment.get() \
             + self._living.get() + self._utilities.get() + self._insurance.get())
         money_label = ttk.Label(master=self._frame, text="You have left in your budget: ")
-        remaining_label.grid(padx=5, pady=5)
-        remaining_sum_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
+        total_label.grid(padx=5, pady=5)
+        total_sum_label.grid(row=2, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
         money_label.grid(padx=5, pady=5)
         self._result_label.grid(row=3, column=2, sticky=(constants.E, constants.W), padx=5, pady=5) 
 
@@ -89,7 +104,10 @@ class BudgetChooseView:
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
         self._error_label.grid(padx=5, pady=5)
 
-        budget_label = ttk.Label(master=self._frame, text="Here you can choose your budget")
+        if self._modify:
+            budget_label = ttk.Label(master=self._frame, text="Here you can modify your budget")
+        else:
+            budget_label = ttk.Label(master=self._frame, text="Here you can choose your budget")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
         exit_button = ttk.Button(master=self._frame, text="Exit", command=self._exit)
@@ -103,7 +121,10 @@ class BudgetChooseView:
         self._choose_utilities()
         self._choose_insurance()
         
-        create_button = ttk.Button(master=self._frame, text="Create", command=self._createbutton_click)
+        if self._modify:
+            create_button = ttk.Button(master=self._frame, text="Modify", command=self._createbutton_click)
+        else:
+            create_button = ttk.Button(master=self._frame, text="Create", command=self._createbutton_click)
         create_button.grid(row=10, column=0, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
         
         self._frame.grid_columnconfigure(1, weight=1, minsize=170)
@@ -121,7 +142,7 @@ class BudgetChooseView:
             self._show_error(f"The amounts should be entered in numbers")
             return
         amount = food + transit + entertainment + living + utilities + insurance
-        if self._remaining >= amount:
+        if self._total >= amount:
             user_service.modify_budget(food, transit, entertainment, living, utilities, insurance)
             self._show_budget_view()
         else:
@@ -155,7 +176,7 @@ class BudgetChooseView:
             insurance = self._insurance.get()
         except:
             insurance = 0
-        self._result_label['text'] = self._remaining - (food + transit + entertainment + living + utilities + insurance)
+        self._result_label['text'] = self._total - (food + transit + entertainment + living + utilities + insurance)
 
     def _exit(self):
         user_service.exit()

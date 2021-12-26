@@ -87,7 +87,10 @@ class LoginView:
         password = self._password_entry.get()
         try:
             user_service.login(username, password) 
-            self._budget_view()
+            if user_service.check_budget():
+                self._budget_view()
+            else:
+                self._budget_create()
         except:
             self._show_error('Invalid username or password')
 

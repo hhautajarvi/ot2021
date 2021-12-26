@@ -4,13 +4,14 @@ from services.user_service import user_service
 from datetime import date
 
 class BudgetView:
-    def __init__(self, root, add_expense_view, login_view):
+    def __init__(self, root, add_expense_view, login_view, choose_budget):
         self._root = root
         self._frame = None
         self._budget = user_service.show_budget()
         self._expenselist, self._expenses_categorized = user_service.return_expenses()
         self._add_expense_view = add_expense_view
         self._login_view = login_view
+        self._choose_budget_view = choose_budget
         self._month = date.today().month
         self._year = date.today().year
 
@@ -125,8 +126,11 @@ class BudgetView:
         user_service.month_check(self._month, self._year)
         self._show_budget()
         self._show_expenses()
-        self._plots = PlotView(self._frame, self._month, self._year)
-        self._plots.plot()
+        plots = PlotView(self._frame, self._month, self._year)
+        plots.plot()
+
+        modify_budget_button = ttk.Button(master=self._frame, text="Modify budget", command=self._modify_budget_click)
+        modify_budget_button.grid(row=9, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         add_expense_button = ttk.Button(master=self._frame, text="Add a new expense", command=self._add_expense_view)
         add_expense_button.grid(row=9, column=1, columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
@@ -159,3 +163,7 @@ class BudgetView:
         self.destroy()
         self._initialize()
         self.pack()
+
+    def _modify_budget_click(self):
+        user_service.modify_on()
+        self._choose_budget_view()

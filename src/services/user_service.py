@@ -25,6 +25,7 @@ class UserService:
         self._user_repository = user_repository
         self._budget_repository = budget_repository
         self._expense_repository = expense_repository
+        self._budget_modify = False
 
     def create_new_user(self, username, password):
         """Luo uuden käyttäjän
@@ -71,6 +72,8 @@ class UserService:
         """Kirjaa käyttäjän ulos.
         """
         self._user = None
+        self._budget = None
+        self._budget_modify = False
 
     def exit(self):
         """Lopettaa sovelluksen
@@ -85,13 +88,13 @@ class UserService:
         """
         self._budget = self._budget_repository.create_budget(self._user.user_id, amount)
 
-    def show_remaining(self):
-        """Kertoo budjetissa jäljellä oleva määrä budjetin kokonaissummasta
+    def show_total(self):
+        """Kertoo budjetin kokonaissumman
 
         Returns:
-            Palauttaa budjetissa jäljellä oleva määrä budjetin kokonaissummasta (int)
+            Palauttaa budjetin kokonaissumman (int)
         """
-        return self._budget.remaining
+        return self._budget.amount
 
     def show_budget(self):
         """Kertoo käyttäjän budjetin tiedot
@@ -159,5 +162,29 @@ class UserService:
         """
         if (month, year) not in self._user.expenses_categorized:
             self._user.expenses_categorized[(month, year)] = [0, 0, 0, 0, 0, 0, 0]
+
+    def check_budget(self):
+        """Tarkastaa onko käyttäjä tehnyt budjetin itselleen
+
+        Returns:
+            boolean: onko budjetti tehty vai ei
+        """
+        budget_exist = self._budget_repository.select_budget(self._user.user_id)
+        if budget_exist == None:
+            return False
+        return True
+
+    def modify_on(self):
+        """Näyttää että budjettia modifioidaan, eikä tehdä ensimmäistä kertaa
+        """
+        self._budget_modify = True
+
+    def check_modify(self):
+        """Kertoo modifioidaanko budjettia, vai tehdäänkö se ensimmäistä kertaa
+
+        Returns:
+            boolean: kertoo onko modifiointi päällä
+        """
+        return self._budget_modify
 
 user_service = UserService()

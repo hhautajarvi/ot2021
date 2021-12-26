@@ -20,7 +20,7 @@ class UI:
 
     def _show_budget_view(self):
         self._hide_view()
-        self._view = BudgetView(self._root, self._show_add_expense_view, self._show_login)
+        self._view = BudgetView(self._root, self._show_add_expense_view, self._show_login, self._choose_budget_view)
         self._view.pack()
 
     def _show_budget_create_view(self):
