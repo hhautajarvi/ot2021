@@ -6,15 +6,15 @@ Ohjelmaa on testattu sekä automatisoiduilla yksikkö- ja integraatiotestein uni
 
 ### Sovelluslogiikka
 
-Sovelluslogiikasta vastaavia UserService, BudgetService ja ExpenseService -luokkia testataan vastaavilla TestUserService, TestBudgetService ja TestExpenseService -luokkia. Näissä testitietokanta tyhjennetään ja tilalle luodaan sopivia testitapauksia.
+Sovelluslogiikasta vastaavia UserService, BudgetService ja ExpenseService -luokkia testataan vastaavilla [TestUserService](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/services/user_service_test.py), [TestBudgetService](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/services/budget_service_test.py) ja [TestExpenseService](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/services/expense_service_test.py) -luokkia. Näissä testitietokanta tyhjennetään ja tilalle luodaan sopivia testitapauksia.
 
 ### Repositorio-luokat
 
-Tietojen tallenuksesta vastaavat BudgetRepository, ExpenseRepository ja UserRepository -luokat testataan testitietokantaa käyttäen joka määritellään .env.test-tiedostossa. Testaaminen suoritetaan TestBudgetRepository, TestExpenseRepository ja TestUserRepository -luokilla.
+Tietojen tallenuksesta vastaavat BudgetRepository, ExpenseRepository ja UserRepository -luokat testataan testitietokantaa käyttäen joka määritellään .env.test-tiedostossa. Testaaminen suoritetaan [TestBudgetRepository](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/repositories/budget_repository_test.py), [TestExpenseRepository](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/repositories/expense_repository_test.py) ja [TestUserRepository](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/repositories/user_repository_test.py) -luokilla.
 
 ### Tietomallit
 
-Käyttäjä-, budjetti- ja kuluolioista vastaavat luokat User, Budget ja Expense testataan TestUser, TestBudget ja TestExpense -luokkia käyttäen.
+Käyttäjä-, budjetti- ja kuluolioista vastaavat luokat User, Budget ja Expense testataan [TestUser](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/entities/user_test.py), [TestBudget](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/entities/budget_test.py) ja [TestExpense](https://github.com/hhautajarvi/ot2021/blob/master/src/tests/entities/expense_test.py) -luokkia käyttäen.
 
 ### Testauskattavuus
 
@@ -26,13 +26,13 @@ Testaamatta jäi lähinnä sovelluksen alustamiseen ja lopettamiseen liittyviä 
 
 Järjestelmätestaus on suoritettu manuualisesti testaamalla erilaisia tilanteita.
 
-## Asennus ja konfigurointi
+### Asennus ja konfigurointi
 
-Sovellus on haettu ja sitä on testattu käyttöohjeen mukaisesti Linux-ympäristössä. Sovellusta on testattu sekä kun tietokantatiedostot ovat vielä olleet luomatta, sekä kun ne on jo luotu valmiiksi.
+Sovellus on haettu ja sitä on testattu [käyttöohjeen](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/kayttoohje.md) mukaisesti Linux-ympäristössä. Sovellusta on testattu sekä kun tietokantatiedostot ovat vielä olleet luomatta, sekä kun ne on jo luotu valmiiksi.
 
-## Toiminnallisuudet
+### Toiminnallisuudet
 
-Määrittelydokumentin ja käyttöohjeen listaamat toiminnallisuudet on kaikki testattu ja käyty läpi. Syötekenttiin on kokeiltu täyttää virheellisen tyyppisiä arvoja ja ne on myös kokeiltu jättää tyhjäksi.
+[Määrittelydokumentin](https://github.com/hhautajarvi/ot2021/blob/master/dokumentaatio/vaatimusmaarittely.md) ja käyttöohjeen listaamat toiminnallisuudet on kaikki testattu ja käyty läpi. Syötekenttiin on kokeiltu täyttää virheellisen tyyppisiä arvoja ja ne on myös kokeiltu jättää tyhjäksi.
 
 ## Sovellukseen jääneet laatuongelmat
 

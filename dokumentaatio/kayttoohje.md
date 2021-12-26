@@ -47,4 +47,4 @@ Tässä näkymässä käyttäjä voi luoda toteutuneen kulun budjettiinsa. Käyt
 
 ## Ohjelmasta poistuminen
 
-Ohjelmasta voi poistua joka ruudulta painamalla oikean yläkulman 'Exit'-näppäintä
+Ohjelmasta voi poistua joka ruudulta painamalla oikean yläkulman 'Exit'-näppäintä.
