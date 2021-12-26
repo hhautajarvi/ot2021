@@ -1,6 +1,5 @@
 import unittest
 from repositories.user_repository import user_repository
-from entities.user import User
 
 class TestUserRepository(unittest.TestCase):
     def setUp(self):

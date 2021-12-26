@@ -51,24 +51,3 @@ class Budget:
             int: Palauttaa budjetissa jäljellä olevan käyttämättömän summan
         """
         return self.amount - self.used
-
-    def change_amount(self, amount):
-        self.amount = amount
-
-    def change_food(self, food):
-        self.food = food
-
-    def change_transit(self, transit):
-        self.transit = transit
-
-    def change_entertainment(self, entertainment):
-        self.entertainment = entertainment
-
-    def change_living(self, living):
-        self.living = living
-
-    def change_utilities(self, utilities):
-        self.utilities = utilities
-
-    def change_insurance(self, insurance):
-        self.insurance = insurance
