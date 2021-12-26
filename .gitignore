@@ -1,16 +1,6 @@
-/laskarit/viikko2/unicafe/.coverage
-/laskarit/viikko2/unicafe/htmlcov
-/laskarit/viikko2/maksukortti/.coverage
-/laskarit/viikko2/maksukortti/htmlcov
-/laskarit/viikko2/maksukortti/src/tests/__pycache__/
-/laskarit/viikko2/maksukortti/src/__pycache__/
-/laskarit/viikko2/unicafe/src/tests/__pycache__/
-/laskarit/viikko2/unicafe/__pycache__
-/laskarit/viikko2/unicafe/.pytest_cache
-/laskarit/viikko2/unicafe/src/__pycache__/
-/laskarit/viikko2/.coverage
 .coverage
 .pytest_cache
 htmlcov
 __pycache__
 /data/database.sqlite
+/data/test-database.sqlite
