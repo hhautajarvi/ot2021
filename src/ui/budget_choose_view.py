@@ -141,6 +141,9 @@ class BudgetChooseView:
             living = int(self._living_sum.get())
             utilities = int(self._utilities_sum.get())
             insurance = int(self._insurance_sum.get())
+            if food < 0 or transit < 0 or entertainment < 0 or living < 0 or utilities <0 or insurance < 0:
+                self._show_error('Numbers should not be negative')
+                return
         except:
             self._show_error(f"The amounts should be entered in numbers")
             return

@@ -70,7 +70,7 @@ class AddExpenseView:
 
         self._error_variable = StringVar(self._frame)
         self._error_label = ttk.Label(master=self._frame, textvariable=self._error_variable,foreground='red')
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(columnspan=2, padx=5, pady=5)
 
         budget_label = ttk.Label(master=self._frame, text="Enter a new expense")
         budget_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
@@ -92,6 +92,9 @@ class AddExpenseView:
     def _addbutton_click(self):
         try:
             amount = int(self._amount_sum.get())
+            if amount <= 0:
+                self._show_error('Amount should be a positive number')
+                return
         except:
             self._show_error(f"Amount is required in numbers")
             return

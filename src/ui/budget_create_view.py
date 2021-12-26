@@ -55,8 +55,12 @@ class BudgetCreateView:
     def _createbutton_click(self):
         sum = self._budget_sum.get()
         try:
-            budget_service.create_budget(int(sum))
-            self._choose_budget_view()
+            if int(sum) <= 0:
+                self._show_error('Budget should be a positive number')
+                return
+            else:
+                budget_service.create_budget(int(sum))
+                self._choose_budget_view()
         except:
             self._show_error('The amount should be entered in numbers')
 
