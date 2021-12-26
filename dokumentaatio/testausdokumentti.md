@@ -20,11 +20,12 @@ Käyttäjä-, budjetti- ja kuluolioista vastaavat luokat User, Budget ja Expense
 
 Testauksen haarumakattavuus on 95%, lukuunottamatta sen ulkopuolelle jätettyä käyttöliittymäkoodia.
 ![testikattavuus](./kuvat/coveragereport.png)
+
 Testaamatta jäi lähinnä sovelluksen alustamiseen ja lopettamiseen liittyviä metodeja ja tiedostoja. Myös rajatapauksia ja vääriä syötteitä yms. olisi voinut testata laajemmin, vaikka ne eivät testikattavuudessa näykään.
 
 ## Järjestelmätestaus
 
-Järjestelmätestaus on suoritettu manuualisesti testaamalla erilaisia tilanteita.
+Järjestelmätestaus on suoritettu manuaalisesti testaamalla erilaisia tilanteita.
 
 ### Asennus ja konfigurointi
 

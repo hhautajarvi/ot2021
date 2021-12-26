@@ -16,7 +16,7 @@ Käyttöliittymässä on viisi erillistä näkymää ja kuusi luokkaa:
 * [Budjetin summan valinta](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_create_view.py)
 * [Budjetin kategorioiden summien valinta ja muokkaus](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_choose_view.py)
 * [Budjetin tarkastelu](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/budget_view.py)
-* [Budjetin graafinen tarkastelu (vain luokka)](hhttps://github.com/hhautajarvi/ot2021/blob/master/src/ui/plotting/plot_view.py)
+* [Budjetin graafinen tarkastelu (vain luokka)](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/plotting/plot_view.py)
 * [Kulun lisäys](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/add_expense_view.py)
 
 Nämä on toteutettu omina luokkinaan ja näistä jokainen on yksi kerrallaan näkyvillä budjetin graafista tarkastelua lukuunottamatta. Budjetin graafinen tarkastelu on tehty omana luokkanaan jota 'Budjetin tarkastelu'-näkymä kutsuu ja nämä näkyvät samanaikaisesti käyttäjälle. Eri näkymien näyttämisestä vastaa [UI](https://github.com/hhautajarvi/ot2021/blob/master/src/ui/ui.py)-luokka. Käyttöliittymä on pyritty eristämään sovelluslogiikasta ja se vain kutsuu sovelluslogiikkaluokkien metodeja.
@@ -56,6 +56,12 @@ Kun käyttäjä on syöttänyt aloitusruudussa 'Make a new user'-kohtaan käytt�
 ![Rekisteröinti](./kuvat/register_sequence.png)
 Tapahtumakäsittelijä kutsuu UserService-luokan metodia `create_new_user` annetuilla käyttäjänimen ja salasanan parametreillä. UserService selvittää UserRepositoryn kautta tietokannasta onko käyttäjänimi jo olemassa. Jos ei niin UserService voi kutsua UserRepositoryn `create_user`-metodia ja luoda tietokantaan uuden käyttäjän. Tämä luo samalla uuden käyttäjäolion, joka palautetaan takaisin ja käyttäjä siirretään luomaan uutta budjettia `show_budget_create_view`-näkymään.
 
+### Budjetin kategorioiden summien luonti/päivitys
+
+Kun käyttäjä on joko ensimmäistä kertaa luomassa budjettiaan ja valitsemassa kategorioiden summia, tai muokkaamassa näitä, ja on valinnut validit summat ja painaa 'Create' tai 'Modify' -näppäintä (riippuen onko muokkamassa vai luomassa ensimmäistä kertaa), sovelluksen toiminta etenee seuraavasti:
+![Kategorioiden luonti](./kuvat/category_budget.png)
+Tapahtumakäsittelijä kutsuu BudgetService-luokan metodia `modify budget` jolle annetaan argumentteina kategorioiden summat. BudgetService taas kutsuu BudgetRepository-luokan metodia `modify budget` lisäten argumentteihin käyttäjän id-numeron. Tämän jälkeen budjetti on talletettu tietokantaan. Käyttäjä siirtetään nyt budjetin tarkastelun tilaan `show_budget_view`-näkymään.
+
 ### Uuden kulun lisäys
 
 Kun käyttäjä on uuden kulun lisäksen ruudussa ja on täyttänyt valikkoon numeraalisen summan, valinnut sopivan kategorian ja päivämäärän, sekä mahdollisesti syöttänyt enintään 50 merkkiä pitkän kommentin ja painaa 'Add'-painiketta, sovelluksen toiminta etenee seuraavasti:
@@ -64,4 +70,4 @@ Tapahtumakäsittelijä kutsuu ExpenseService-luokan metodia `create_expense` sy�
 
 ### Muut toiminnallisuudet
 
-Muut toiminnallisuudet seuraavat pitkälti samaa periaattetta. Käyttöliittymän tapahtumakäsittelijä kutsuu sovelluslogiikan metodia, joka mahdollisesti tallentaa tai hakee tietokanta-luokalta tietoa tai vain kertoo jo käyttäjä- tai budjettiolioissa olevan tiedon takaisin käyttöliittymään joka päivittyy näiden tietojen perusteella tai siirtyy seuraavaan näkymään.
+Muut toiminnallisuudet seuraavat pitkälti samaa periaattetta. Käyttöliittymän tapahtumakäsittelijä kutsuu sovelluslogiikan metodia, joka mahdollisesti tallentaa tai hakee tietokanta-luokalta tietoa tai kertoo jo käyttäjä- tai budjettiolioissa olevan tiedon takaisin käyttöliittymälle joka päivittyy näiden tietojen perusteella tai siirtyy seuraavaan näkymään.
