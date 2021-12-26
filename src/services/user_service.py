@@ -170,7 +170,7 @@ class UserService:
             boolean: onko budjetti tehty vai ei
         """
         budget_exist = self._budget_repository.select_budget(self._user.user_id)
-        if budget_exist == None:
+        if budget_exist is None:
             return False
         return True
 

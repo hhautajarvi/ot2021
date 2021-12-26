@@ -23,8 +23,8 @@ class BudgetRepository:
             Palauttaa Budget-luokan olion
         """
         cursor = self.connection.cursor()
-        cursor.execute("INSERT INTO Budget (user_id, amount, food, transit, entertainment, \
-            living, utilities, insurance) VALUES (?,?,?,?,?,?,?,?)", (user_id, amount, 0, 0, 0, 0, 0, 0))
+        cursor.execute("INSERT INTO Budget (user_id, amount, food, transit, entertainment, living,\
+            utilities, insurance) VALUES (?,?,?,?,?,?,?,?)", (user_id, amount, 0, 0, 0, 0, 0, 0))
         self.connection.commit()
         return Budget(user_id, amount)
 

@@ -5,8 +5,8 @@ from entities.expense import Expense
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User(1, "Matti", "salasana1")
-        self.expense1 = Expense(1, 100, 1, "kauppa", 2021-12-10)
-        self.expense2 = Expense(1, 400, 4, "vuokra", 2021-12-10)
+        self.expense1 = Expense(1, 100, 1, "kauppa", "2021-12-10")
+        self.expense2 = Expense(1, 400, 4, "vuokra", "2021-12-10")
         self.user.add_expense(self.expense1)
         self.user.add_expense(self.expense2)
 
@@ -20,7 +20,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user.password, "salasana1")
 
     def test_add_expense(self):
-        self.assertEqual(len(self.user.expenselist), 2)
+        self.assertEqual(len(self.user.expenselist[1]), 1)
+        self.assertEqual(len(self.user.expenselist[4]), 1)
+        self.assertEqual(len(self.user.expenselist[2]), 0)
 
     def test_add_expense_sum(self):
-        self.assertEqual((self.user.expenselist[0].amount+self.user.expenselist[1].amount), 500)
+        self.assertEqual((self.user.expenselist[1][0].amount+self.user.expenselist[4][0].amount), 500)

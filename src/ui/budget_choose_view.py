@@ -46,8 +46,8 @@ class BudgetChooseView:
         self._total = user_service.show_total()
         total_label = ttk.Label(master=self._frame, text="You have total of in your budget: ")
         total_sum_label = ttk.Label(master=self._frame, text=f"{self._total}")
-        self._result_label = ttk.Label(master=self._frame, text=self._food.get() + self._transit.get() + self._entertainment.get() \
-            + self._living.get() + self._utilities.get() + self._insurance.get())
+        self._result_label = ttk.Label(master=self._frame, text=self._total-(self._food.get() + self._transit.get() + self._entertainment.get() \
+            + self._living.get() + self._utilities.get() + self._insurance.get()))
         money_label = ttk.Label(master=self._frame, text="You have left in your budget: ")
         total_label.grid(padx=5, pady=5)
         total_sum_label.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5) 

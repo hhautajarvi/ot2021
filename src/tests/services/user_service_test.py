@@ -12,8 +12,8 @@ class TestUserService(unittest.TestCase):
         user_service.create_new_user("Matti", "salasana2")
         user_service.create_budget(2000)
         user_service.modify_budget(100, 90, 80, 70, 60, 50)
-        user_service.create_expense(100, 4, "vuokra")
-        user_service.create_expense(200, 1, "kauppalasku")
+        user_service.create_expense(100, 4, "vuokra", "2012-12-26")
+        user_service.create_expense(200, 1, "kauppalasku", "2012-12-26")
         self.user = user_repository.find_user("Matti")
         self.budget = budget_repository.select_budget(1)
         self.expenses = expense_repository.find_user_expenses(1)
@@ -69,14 +69,16 @@ class TestUserService(unittest.TestCase):
         self.assertEqual((self.expenses[0][2]+self.expenses[1][2]), 300)
 
     def test_show_remaining(self):
-        self.assertEqual(user_service.show_remaining(), 2000)
+        self.assertEqual(user_service.show_total(), 2000)
 
     def test_return_expenses(self):
         expenselist, expenselistcat = user_service.return_expenses()
-        self.assertEqual(len(expenselist), 2)
-        self.assertEqual(expenselistcat[0], 300)
-        self.assertEqual(expenselistcat[1], 200)
-        self.assertEqual(expenselistcat[4], 100)
+        self.assertEqual(len(expenselist[1]), 1)
+        self.assertEqual(len(expenselist[4]), 1)
+        self.assertEqual(len(expenselist[0]), 0)
+        #self.assertEqual(expenselistcat[(12, 2021)][0], 300)
+        #self.assertEqual(expenselistcat[(12, 2021)][1], 200)
+        #self.assertEqual(expenselistcat[(12, 2021)][4], 100)
 
     def test_logout(self):
         user_service.logout()
